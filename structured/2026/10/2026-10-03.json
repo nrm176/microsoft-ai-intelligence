@@ -1,0 +1,258 @@
+{
+  "id": "ms-ai-brief-2026-10-03",
+  "date": "2026-10-03",
+  "coverage_window": {
+    "start": "2026-09-23",
+    "end": "2026-10-03"
+  },
+  "language": "ja",
+  "run_type": "manual_test",
+  "generated_at": "2026-10-03T09:53:00+09:00",
+  "source_count": 8,
+  "developments": [
+    {
+      "product": "Work IQ",
+      "event": "Work IQ が Dynamics 365 / Power Platform の業務コンテキストへ拡張",
+      "event_type": "public_preview",
+      "date": "2026-09-30",
+      "facts": [
+        "Work IQ が Dynamics 365 と Power Platform の中核業務データを Copilot とエージェントのグラウンディングに利用できるようになる。",
+        "プレビューは2026年9月30日から開始され、10月にかけて展開される。",
+        "Dynamics 365 Sales / Customer Service、Power Apps、サードパーティのLine-of-Businessアプリが対象として示され、Finance and Operationsも10月後半からの展開が案内されている。",
+        "Work IQ MCP Server、Work IQ CLI、コーディングエージェント向けプラグインを通じて承認済みビジネスコンテキストを開発環境で利用できる方向が示されている。"
+      ],
+      "summary": "Work IQ が Microsoft 365 の仕事コンテキストだけでなく、CRM/ERP/Power Platform の業務レコード、関係性、プロセスルールまで扱う方向へ拡張した。",
+      "enterprise_implication": "エージェントごとに業務データの意味論やプロセスを個別実装するのではなく、共通のビジネスコンテキストをWork IQ側で再利用・統制する設計が現実的になりつつある。",
+      "use_cases": [
+        "商談更新時にOpportunity、未解決サービス案件、直近メールを横断してリスクを判断する。",
+        "営業・サービス・財務・サプライチェーンを横断するエージェントを構築する。",
+        "Work IQ MCPを利用し、業務定義を理解したコーディングエージェントを構築する。"
+      ],
+      "technical_implications": [
+        "Microsoft 365データとLoBデータのコンテキスト統合",
+        "MCP/CLI経由でのエージェント利用",
+        "IT管理者によるデータ公開範囲とアクセス統制"
+      ],
+      "analysis": "MicrosoftはWork IQを単なるMicrosoft 365検索APIではなく、業務アプリを横断する再利用可能なコンテキスト／アクション層へ拡張しようとしていると考えられる。",
+      "sources": [
+        {
+          "title": "Work IQ: Business and workplace intelligence in the flow of work",
+          "publisher": "Microsoft",
+          "url": "https://www.microsoft.com/en-us/dynamics-365/blog/it-professional/2026/09/25/work-iq-business-and-workplace-intelligence-in-the-flow-of-work/"
+        }
+      ],
+      "confidence": 0.98
+    },
+    {
+      "product": "Fabric IQ",
+      "event": "Fabric IQ が Microsoft Copilot Chat / Cowork で GA、IQ Sharing は preview",
+      "event_type": "general_availability",
+      "date": "2026-09-28",
+      "facts": [
+        "Fabric IQ が Microsoft Copilot Chat と Copilot Cowork で一般提供された。",
+        "Power BIのセマンティックモデル、指標、関係性、業務定義をCopilotの回答やマルチステップ作業のグラウンディングに利用できる。",
+        "IQ Sharingがpreviewとして発表され、組織間でデータとそのビジネスコンテキストを統制しながら共有する方向が示された。"
+      ],
+      "summary": "Fabric IQ が、Power BIで定義済みの業務意味論を Copilot に供給する共通セマンティック層として本格利用され始めた。",
+      "enterprise_implication": "社内AI向けにKPI定義やデータ辞書を別途再構築するのではなく、既存Power BI semantic modelをsemantic contractとして再利用できる可能性が高まる。",
+      "use_cases": [
+        "経営レポートと同一の定義で最新売上予測をCopilotから回答する。",
+        "CoworkがFabric IQの数値を利用して分析、資料作成、後続アクションまで行う。",
+        "取引先やグループ会社へ統制されたビジネスコンテキストを共有する。"
+      ],
+      "technical_implications": [
+        "Power BI semantic modelのAIグラウンディング利用",
+        "既存アクセス制御・ガバナンスの継承",
+        "Fabric IQを企業共通のsemantic layerとして位置付ける設計"
+      ],
+      "analysis": "Fabric IQはBIの追加機能というより、AIエージェントに企業内で合意された数字と業務概念を供給するセマンティック層へ位置付けが拡大している。",
+      "sources": [
+        {
+          "title": "New Microsoft data innovations unlock what only your business knows",
+          "publisher": "Microsoft",
+          "url": "https://blogs.microsoft.com/blog/2026/09/28/new-microsoft-data-innovations-unlock-what-only-your-business-knows/"
+        }
+      ],
+      "confidence": 0.98
+    },
+    {
+      "product": "Microsoft Foundry",
+      "event": "Foundry Agent Service Routines が GA",
+      "event_type": "general_availability",
+      "date": "2026-09-24",
+      "facts": [
+        "Routinesは指定日時、定期スケジュール、外部イベントをトリガーとしてエージェントを実行できる。",
+        "初期イベント連携としてGitHub IssueとMicrosoft Teamsチャネルメッセージが示されている。",
+        "トリガー、認証、エージェントアクション、実行履歴をFoundry project内で管理する。",
+        "Hosted Agentが自身を後で再実行するreminder toolはpreviewとして提供されている。"
+      ],
+      "summary": "定期・イベント駆動型エージェントに必要だったスケジューラ、認証、実行履歴などをFoundry Agent Serviceがマネージド機能として吸収した。",
+      "enterprise_implication": "エージェント運用の周辺インフラを独自構築せず、Foundryを継続実行ランタイムとして利用する選択肢が強くなった。",
+      "use_cases": [
+        "毎朝の社内ニュース要約",
+        "GitHub Issue自動トリアージ",
+        "Teams問い合わせの検出と回答準備",
+        "長時間処理の再確認"
+      ],
+      "technical_implications": [
+        "schedule/event triggerのマネージド化",
+        "creator identityとagent identityの選択",
+        "実行履歴・監査の統合"
+      ],
+      "analysis": "Microsoft Foundryはエージェント作成環境から、継続運用・自動実行を含むエージェントランタイムへ役割を広げている。",
+      "sources": [
+        {
+          "title": "From Chatbots to Automated Agents: Routines in Microsoft Foundry Are Now Generally Available",
+          "publisher": "Microsoft Foundry Blog",
+          "url": "https://devblogs.microsoft.com/foundry/from-chatbots-to-automated-assistants-routines-in-microsoft-foundry-are-now-generally-available/"
+        }
+      ],
+      "confidence": 0.99
+    },
+    {
+      "product": "Microsoft Foundry",
+      "event": "Hosted Agent の outbound network egress 制御を強化",
+      "event_type": "security_update",
+      "date": "2026-09-24",
+      "facts": [
+        "Hosted Agentが接続できる外部宛先をoutbound policyで定義できる。",
+        "Auditで通信を確認でき、Enforced modeで許可・拒否を強制できる。"
+      ],
+      "summary": "Agentic AIの本番利用に必要なネットワーク出口制御がFoundry Agent Serviceに組み込まれ始めた。",
+      "enterprise_implication": "MCPや外部APIを使うエージェントでは、ツール権限だけでなくネットワークレベルのegress制御を設計に含める必要性が高まる。",
+      "use_cases": [
+        "許可されたMCP serverのみへの接続",
+        "外部APIのallowlist運用",
+        "エージェント通信の監査"
+      ],
+      "technical_implications": [
+        "outbound policy",
+        "Audit",
+        "Enforced mode"
+      ],
+      "analysis": "エージェントの自律性が高まるほど、network egress policyは従来アプリと同様に標準的な企業セキュリティ要件になる可能性が高い。",
+      "sources": [
+        {
+          "title": "Control where your hosted agent connects with network egress in Foundry Agent Service",
+          "publisher": "Microsoft Foundry Blog",
+          "url": "https://devblogs.microsoft.com/foundry/egress-controls-hosted-agent/"
+        }
+      ],
+      "confidence": 0.97
+    },
+    {
+      "product": "Microsoft Copilot Managed Runtime",
+      "event": "Copilot Managed Runtime が public preview",
+      "event_type": "public_preview",
+      "date": "2026-09-25",
+      "facts": [
+        "Copilot Cowork、Copilot Code、Copilot Studioで作成したアプリをMicrosoft 365 tenant boundary内で実行するenterprise-grade runtimeとして発表された。",
+        "Microsoft Entra ID、組織ポリシー、データアクセス、監視、バージョン管理、ライフサイクル管理を共通化する。",
+        "Git-backed codeを維持でき、SDK/CLI経由で第三者開発ツールからも利用できる方向が示されている。"
+      ],
+      "summary": "AI生成アプリを企業内で安全にホスト・統制する共通ランタイムをMicrosoftが提供し始めた。",
+      "enterprise_implication": "自然言語によるアプリ生成が広がっても、実行環境、ID、ポリシー、監視をIT部門が一元管理する運用モデルを作りやすくなる。",
+      "use_cases": [
+        "Coworkで作った社内アプリをIT統制下で公開する。",
+        "生成コードをGitで継続開発し同一ランタイムへ再デプロイする。",
+        "異なるAI開発環境で作成されたアプリをMicrosoft 365 admin centerから一元管理する。"
+      ],
+      "technical_implications": [
+        "Microsoft Entra ID",
+        "Git-backed source control",
+        "Managed Runtime SDK/CLI",
+        "Microsoft 365 admin centerによる集中管理"
+      ],
+      "analysis": "MicrosoftはOpen Build / Managed Runに近い企業向けモデルを形成し、作成ツールの自由度と実行時ガバナンスを分離しようとしていると考えられる。",
+      "sources": [
+        {
+          "title": "Build where you want, run with confidence: Now Microsoft hosts and manages the code created by Copilot",
+          "publisher": "Microsoft Copilot Blog",
+          "url": "https://www.microsoft.com/en-us/copilot/blog/copilot-studio/build-where-you-want-run-with-confidence-now-microsoft-hosts-and-manages-the-code-created-by-copilot/"
+        }
+      ],
+      "confidence": 0.99
+    },
+    {
+      "product": "Foundry IQ",
+      "event": "Foundry IQ のマルチソース知識層と Serverless 課金フェーズ",
+      "event_type": "operational_milestone",
+      "date": "2026-09-13",
+      "facts": [
+        "Foundry IQは複数の企業知識ソースをエージェントへ提供するmanaged knowledge layerとして展開されている。",
+        "Foundry IQ MCP Serverを通じてMCP-compatibleなエージェントからKnowledge Baseを利用できる。",
+        "Serverless tierはidle時scale-to-zeroの従量型モデルで、2026年9月13日からcomputeとstorageの課金が開始された。",
+        "Microsoftの公開サンプルではFoundry IQ、Work IQ、Fabric IQを組み合わせるエンドツーエンド構成が示されている。"
+      ],
+      "summary": "Foundry IQは単体RAGではなく、Work IQやFabric IQと組み合わせるMicrosoft IQの知識レイヤーとして位置付けが明確になっている。",
+      "enterprise_implication": "企業データを単一ベクトルDBへ集約するより、データ種別ごとに専門context providerを維持してエージェントから統合利用する設計を検討できる。",
+      "use_cases": [
+        "企業ポリシー文書のグラウンディング",
+        "Work IQのMicrosoft 365 contextと組み合わせた回答",
+        "Fabric IQの構造化ビジネスデータとの統合"
+      ],
+      "technical_implications": [
+        "MCP-based knowledge access",
+        "serverless retrieval",
+        "multi-source agentic retrieval",
+        "利用量ベースのコスト管理"
+      ],
+      "analysis": "Microsoft IQは一つの巨大RAGストアへ集約するのではなく、Foundry IQ、Work IQ、Fabric IQ、Web IQを専門context providerとして組み合わせる方向に見える。",
+      "sources": [
+        {
+          "title": "Foundry IQ: Build smarter agents faster with unified knowledge and serverless retrieval",
+          "publisher": "Microsoft Foundry Blog",
+          "url": "https://devblogs.microsoft.com/foundry/build-smarter-agents-faster-with-foundry-iq/"
+        },
+        {
+          "title": "The Microsoft IQ Series",
+          "publisher": "Microsoft GitHub",
+          "url": "https://github.com/microsoft/iq-series"
+        },
+        {
+          "title": "IQ Samples",
+          "publisher": "Microsoft GitHub",
+          "url": "https://github.com/microsoft/iq-samples"
+        }
+      ],
+      "confidence": 0.95
+    }
+  ],
+  "overall_analysis": {
+    "statement": "Microsoftの企業向けAgentic AIスタックは、企業コンテキスト、推論、継続実行、アプリ実行、ガバナンスを一つのシステムとして統合する方向へ進んでいる。",
+    "architecture": {
+      "context": [
+        "Work IQ",
+        "Fabric IQ",
+        "Foundry IQ",
+        "Web IQ"
+      ],
+      "reasoning": [
+        "Microsoft Foundry",
+        "Microsoft Copilot",
+        "Copilot Studio"
+      ],
+      "automation": [
+        "Foundry Routines"
+      ],
+      "runtime": [
+        "Copilot Managed Runtime"
+      ],
+      "governance": [
+        "Microsoft Entra ID",
+        "Microsoft 365 admin center",
+        "Power Platform admin",
+        "network policy"
+      ]
+    }
+  },
+  "watchlist": [
+    "Work IQ business applications previewのAPI/MCP仕様と利用可能リージョン",
+    "Dynamics 365 Finance and Operations対応の10月後半ロールアウト",
+    "Work IQとFabric IQ / Foundry IQの責務境界",
+    "Copilot Managed RuntimeのSDK、料金、デプロイ制約",
+    "Foundry Routinesのイベントソース追加",
+    "Foundry IQ Serverlessの実運用コスト",
+    "Ignite 2026に向けたMicrosoft IQの追加発表"
+  ]
+}
