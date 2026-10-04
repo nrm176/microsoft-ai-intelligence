@@ -1,0 +1,12 @@
+{
+  "id": "ms-ai-brief-2026-10-05",
+  "date": "2026-10-05",
+  "language": "ja",
+  "status": "complete",
+  "summary": "Microsoft 365 Copilotでは、Plugin Registryを中心にDeclarative agent、Skill、Copilot connector、MCP serverを共通の配布・管理ライフサイクルへ整理する方向が明確になっています。CopilotはHome、Code、Autopilotを統合し、通常のユーザーライセンスと高度な処理の従量課金を併用する商用モデルを示しています。Dynamics 365、Power Platform、DataverseのロードマップはAI at Work roadmapへ統合され、Release Communications MCP Serverによる機械取得も案内されています。",
+  "sources": [
+    "Microsoft Learn: Microsoft 365 Copilot plugins overview",
+    "Microsoft Source: New Microsoft Copilot with Home, Code and Autopilot",
+    "Microsoft Learn: September 2026 Partner Center announcements"
+  ]
+}
