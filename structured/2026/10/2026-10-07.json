@@ -1,0 +1,79 @@
+{
+  "id": "ms-ai-brief-2026-10-07",
+  "date": "2026-10-07",
+  "coverage_window": {
+    "start": "2026-10-05",
+    "end": "2026-10-07"
+  },
+  "language": "ja",
+  "generated_at": "2026-10-07T08:42:04+09:00",
+  "source_count": 3,
+  "developments": [
+    {
+      "product": "Microsoft IQ",
+      "event": "Microsoft IQ Solution Acceleratorの継続更新",
+      "event_type": "reference_implementation_update",
+      "summary": "Work IQ、Foundry IQ、Fabric IQをCopilot Studioの業務フローで統合するMicrosoft公式Solution Acceleratorが10月6日に更新された。最新変更はAI Foundry resource updateの直列化に関するdeployment fix。",
+      "enterprise_implication": "Microsoft IQ各層を一つの業務意思決定フローへ配置する具体的な参照実装として、企業アーキテクチャ検討に利用できる。",
+      "use_cases": [
+        "サプライチェーン障害時の影響評価と対応支援",
+        "建設・不動産における案件・契約・社内ナレッジ・仕事コンテキストの横断的なリスク評価"
+      ],
+      "technical_implications": [
+        "Fabric IQを構造化データ／semantic layerとして利用",
+        "Foundry IQを文書・企業ナレッジに利用",
+        "Work IQをMicrosoft 365の仕事コンテキストに利用",
+        "Copilot Studioでworkflowをオーケストレーション"
+      ],
+      "facts": [
+        "公式Solution AcceleratorはWork IQ、Foundry IQ、Fabric IQを統合するready-to-deploy参照実装として公開されている。",
+        "2026-10-06にAI Foundry resource updateを直列化するdeployment fixがmainへマージされた。",
+        "一部のMCP integration等はpreviewであり、Microsoftは評価・実験・デモ用途に適すると注意書きしている。"
+      ],
+      "analysis": "単一RAGへの集約ではなく、データの性質ごとに専門intelligence layerを維持しagent/workflow側で統合するMicrosoft IQの設計思想が、参照実装として具体化している。",
+      "sources": [
+        {
+          "title": "Microsoft IQ Solution Accelerator",
+          "publisher": "Microsoft GitHub",
+          "url": "https://github.com/microsoft/microsoft-iq-solution-accelerator"
+        },
+        {
+          "title": "fix: serialize AI Foundry resource updates",
+          "publisher": "Microsoft GitHub",
+          "url": "https://github.com/microsoft/microsoft-iq-solution-accelerator/commit/fd983b8fd6c2808d9b83f8983d2bf3bf7d9958ae"
+        }
+      ],
+      "confidence": 0.99
+    },
+    {
+      "product": "Microsoft Copilot Studio",
+      "event": "10月ロードマップ項目とPersistent identityの継続監視",
+      "event_type": "roadmap_monitoring",
+      "summary": "Copilot Studioではapp-first creation、agent sharing、self-learning、Skills catalog、computer use等の10月展開項目が継続。Persistent identity for Copilot Studio Agentsはpreviewで、2026年11月rollout start予定。",
+      "enterprise_implication": "agentをfirst-class Microsoft 365 identityとして扱う方向は、権限、監査、least privilegeの設計に直接影響する。",
+      "use_cases": [
+        "共有業務プロセスをagent固有identityで実行",
+        "agent mailboxやTeams presenceを使った協働"
+      ],
+      "technical_implications": [
+        "agent identity",
+        "Microsoft 365 governance",
+        "role/access policy"
+      ],
+      "facts": [
+        "Persistent identityではagentに独自accountを与え、mailbox、Teams presence、Office accessを持たせる構想が示されている。",
+        "rollout startは2026年11月予定。"
+      ],
+      "analysis": "Copilot Studioの設計単位はチャットボットから、identity・skills・tools等を持つ企業内ソフトウェア主体へ移行している。",
+      "sources": [
+        {
+          "title": "AI at Work Roadmap",
+          "publisher": "Microsoft Learn",
+          "url": "https://learn.microsoft.com/en-us/power-platform/release-plan/2025wave2/microsoft-copilot-studio/planned-features"
+        }
+      ],
+      "confidence": 0.95
+    }
+  ],
+  "no_major_update": true
+}
