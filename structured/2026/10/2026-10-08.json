@@ -1,0 +1,99 @@
+{
+  "id": "ms-ai-brief-2026-10-08",
+  "date": "2026-10-08",
+  "coverage_window": {
+    "start": "2026-10-07",
+    "end": "2026-10-08"
+  },
+  "language": "ja",
+  "generated_at": "2026-10-08T08:08:53+09:00",
+  "source_count": 4,
+  "developments": [
+    {
+      "product": "Microsoft Execution Containers (MXC)",
+      "event": "エージェント向け隔離実行基盤がGA",
+      "event_type": "general_availability",
+      "summary": "2026年10月7日、MXCがGA。外部ポリシーによりファイル、ネットワーク、UIアクセスを制限する。",
+      "enterprise_implication": "モデルの判断に依存せず、実行時の最小権限を強制できる。",
+      "use_cases": [
+        "coding agentに対象repoのみの書込みを許可する。",
+        "社内MCPツールの外部通信先を制限する。"
+      ],
+      "technical_implications": [
+        "共通JSONポリシーとSDK",
+        "OSに応じて隔離方式が異なる",
+        "Entra/Intuneの一部統合は今後提供予定"
+      ],
+      "analysis": "社内エージェントの安全設計では、IDやプロンプト制約と別にOSレベルの実行境界を定義すべき。",
+      "sources": [
+        "https://blogs.windows.com/windowsdeveloper/2026/10/07/microsoft-execution-containers-policy-driven-containment-for-ai-agents/"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "product": "GitHub Copilot",
+      "event": "local sandboxingがGA",
+      "event_type": "general_availability",
+      "summary": "Copilot CLI、Copilot app、VS Code Agent HostのローカルsandboxがGA。追加料金なし。",
+      "enterprise_implication": "開発者端末での自律的なツール実行を企業ポリシーで制御できる。",
+      "use_cases": [
+        "テスト実行を許可しつつ機密ディレクトリを保護する。"
+      ],
+      "technical_implications": [
+        "MXCベースのtool isolation",
+        "企業管理ポリシーの強制",
+        "モデル実行場所とは独立した制御"
+      ],
+      "analysis": "限定repoで禁止アクセスが実際に遮断されるかを検証すべき。",
+      "sources": [
+        "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "product": "GitHub Copilot CLI",
+      "event": "Ollamaモデル発見を追加",
+      "event_type": "feature_update",
+      "summary": "CLI 1.0.94-0から/modelで稼働中Ollamaの対応モデルを検出可能。",
+      "enterprise_implication": "ローカルLLM利用の設定負担を軽減する。",
+      "use_cases": [
+        "小規模モデルでコード修正・テスト生成を試す。"
+      ],
+      "technical_implications": [
+        "tool callingとstreamingが必要",
+        "オフライン利用はCOPILOT_OFFLINE=trueを別途指定",
+        "モデルやOllamaの自動インストールはしない"
+      ],
+      "analysis": "ローカルモデルの品質、応答速度、通信の有無を評価する。",
+      "sources": [
+        "https://github.blog/changelog/2026-10-07-discover-local-models-in-github-copilot-cli/"
+      ],
+      "confidence": 0.99
+    },
+    {
+      "product": "GitHub HydraFusion / Microsoft Copilot",
+      "event": "Hybrid Intelligenceのローカル推論を拡張予定",
+      "event_type": "preview_announced",
+      "summary": "HydraFusionのローカル/クラウドroutingは10月後半のexperimental preview予定。Copilotのlocal context/actions/modelsは今後数か月の段階的展開予定。",
+      "enterprise_implication": "推論先と端末データへのアクセスを区別して統制する必要がある。",
+      "use_cases": [
+        "簡単なタスクをローカル、複雑なタスクをクラウドで処理する。"
+      ],
+      "technical_implications": [
+        "routingの透明性と監査が評価項目",
+        "端末や地域で提供状況が異なる",
+        "現時点のGAではない"
+      ],
+      "analysis": "企業AIはクラウドの業務コンテキストに端末のcontext/actionを加える方向へ進む。",
+      "sources": [
+        "https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/"
+      ],
+      "confidence": 0.98
+    }
+  ],
+  "watchlist": [
+    "MXCのEntra/Intune統合",
+    "HydraFusionの10月後半experimental preview",
+    "Copilotのlocal context/actions/modelsの展開"
+  ]
+}
