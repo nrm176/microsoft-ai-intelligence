@@ -1,0 +1,2 @@
+ChatGPT connected-app write probe at 2026-10-15 JST.
+Purpose: distinguish normal-chat GitHub writes from scheduled-task writes.
