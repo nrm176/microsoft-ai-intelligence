@@ -1,0 +1,196 @@
+{
+  "id": "microsoft-ai-brief-2026-10-22",
+  "date": "2026-10-22",
+  "coverage_window": "2026-10-19〜2026-10-22 08:33 JST",
+  "generated_at": "2026-10-22T08:33:16+09:00",
+  "language": "ja",
+  "source_count": 6,
+  "developments": [
+    {
+      "product": "Work IQ MCP",
+      "event": "Work IQ retrieveの技術仕様",
+      "event_type": "技術解説",
+      "date": "2026-10-20",
+      "summary": "`retrieve`はメール・Teams・会議・SharePoint・Dataverse等をユーザー権限で検索し、引用付き`markdown`と`retrievalHits`を返す。`strategy`は`copilot`と`grounding`を選択可能。",
+      "enterprise_implication": "社内検索基盤を自作せずに業務コンテキストを活用できる可能性。",
+      "use_cases": [
+        "案件関連のメール・議事録・資料から意思決定の根拠を引用付きで回答する。"
+      ],
+      "technical_implications": [
+        "出典IDとsensitivityLabelを保持し、`retrieve`（証拠収集）と`ask`/`do_action`（委譲・操作）を分離する。"
+      ],
+      "sources": [
+        {
+          "url": "https://devblogs.microsoft.com/microsoft365dev/work-iq-retrieve-october-2026/"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "source_supported_fields": [
+          "summary"
+        ],
+        "model_analysis_fields": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    },
+    {
+      "product": "Microsoft Foundry / Logic Apps",
+      "event": "Foundry workflows廃止予定",
+      "event_type": "廃止予定・移行指針",
+      "date": "2026-10-20",
+      "summary": "Foundryポータル内workflowsは2026-12-01に廃止予定。MicrosoftはFoundry Prompt/Hosted AgentsをLogic Apps Automationから呼び出す移行パターンを公開。",
+      "enterprise_implication": "既存ワークフローの移行期限が迫り、AI推論と業務制御の分離が必要。",
+      "use_cases": [
+        "問い合わせ受付→分類Agent→入力検証→Dataverse登録。"
+      ],
+      "technical_implications": [
+        "Logic Appsでトリガー・再試行・承認・冪等性を管理する。Logic Apps AutomationはPublic Preview。"
+      ],
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%86%95orchestrate-foundry-prompt-and-hosted-agents-with-logic-apps-automation/4566381"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "source_supported_fields": [
+          "summary"
+        ],
+        "model_analysis_fields": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    },
+    {
+      "product": "Copilot / OneDrive / SharePoint",
+      "event": "Copilot in OneDrive/SharePointがGA",
+      "event_type": "GA・機能発表",
+      "date": "2026-10-20",
+      "summary": "複数ファイル分析、フォルダー整理、HTMLレポート作成、Markdown Skillsを紹介。Copilot in OneDrive/SharePointはGA。Hero Linksは展開中で期限付きリンクは将来予定。",
+      "enterprise_implication": "文書保管場所がAI作業面になり、共有権限の統制が重要。",
+      "use_cases": [
+        "工事予算Excelと議事録を横断分析し、月次HTMLレポートを生成する。"
+      ],
+      "technical_implications": [
+        "日本テナントのライセンス・提供状況と共有権限、ファイル変更の承認を検証する。"
+      ],
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/onedriveblog/onedrive-just-got-a-major-upgrade-new-copilot-capabilities-simpler-sharing-and-s/4565995"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "source_supported_fields": [
+          "summary"
+        ],
+        "model_analysis_fields": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    },
+    {
+      "product": "Microsoft Foundry Browser Automation",
+      "event": "Browser Automation ToolがGA",
+      "event_type": "GA",
+      "date": "2026-10-19",
+      "summary": "Playwright Workspacesの分離ブラウザーをFoundry agentsから利用可能。MCP Toolboxes、VNet接続、Live View、Take controlに対応。",
+      "enterprise_implication": "APIのない業務ポータルもAIで処理できる可能性。",
+      "use_cases": [
+        "協力会社ポータルから情報を取得して社内システムに連携する。"
+      ],
+      "technical_implications": [
+        "Playwright Workspaceを別途用意。読み取り専用から開始し、変更操作は人間承認と監査を適用する。"
+      ],
+      "sources": [
+        {
+          "url": "https://devblogs.microsoft.com/foundry/browser-automation-tool-ga/"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "source_supported_fields": [
+          "summary"
+        ],
+        "model_analysis_fields": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    },
+    {
+      "product": "Microsoft Copilot / Azure DevOps",
+      "event": "Azure DevOps PluginをCopilotで提供",
+      "event_type": "連携機能提供",
+      "date": "2026-10-20",
+      "summary": "Copilot Chat・Cowork・CodeからAzure DevOpsのwork items、PR、test plans、pipelinesを扱える。要件文書からバックログ生成を支援。",
+      "enterprise_implication": "Office文書と開発管理の往復作業を減らせる可能性。",
+      "use_cases": [
+        "BRD/FSDをEpic・User Story・受け入れ条件の下書きへ変換する。"
+      ],
+      "technical_implications": [
+        "認可と書き込み承認を確認し、初期PoCは読み取り・下書きに限定する。"
+      ],
+      "sources": [
+        {
+          "url": "https://devblogs.microsoft.com/devops/azure-devops-available-in-microsoft-copilot/"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "source_supported_fields": [
+          "summary"
+        ],
+        "model_analysis_fields": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    },
+    {
+      "product": "GitHub Advanced Security for Azure DevOps",
+      "event": "Agentic Autofixの対象拡張",
+      "event_type": "限定Preview・11月Public Preview予定",
+      "date": "2026-10-21",
+      "summary": "依存関係脆弱性とサードパーティコードスキャンにもAutofixを拡張。`.github`/`.agents`の指示・Skillsを参照。修正生成はAI Credits消費。",
+      "enterprise_implication": "脆弱性修正の時間短縮が期待できるが人間レビューは不可欠。",
+      "use_cases": [
+        "Node.js依存関係の修正PRを生成しCI・人間レビューで検証する。"
+      ],
+      "technical_implications": [
+        "EPSSとruntime依存、深刻度、露出を組み合わせて優先順位付けする。"
+      ],
+      "sources": [
+        {
+          "url": "https://devblogs.microsoft.com/devops/introducing-agentic-autofix-for-code-and-dependencies/"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "source_supported_fields": [
+          "summary"
+        ],
+        "model_analysis_fields": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    }
+  ]
+}
