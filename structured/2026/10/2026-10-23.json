@@ -1,0 +1,156 @@
+{
+  "id": "microsoft-ai-brief-2026-10-23",
+  "date": "2026-10-23",
+  "coverage_window": "2026-10-22 00:00〜2026-10-23 08:50 JST",
+  "generated_at": "2026-10-23T08:50:00+09:00",
+  "language": "ja",
+  "products": [
+    "GitHub Copilot",
+    "GitHub Copilot usage metrics API",
+    "GitHub Copilot impact dashboard",
+    "Work IQ MCP",
+    "Microsoft Foundry"
+  ],
+  "topics": [
+    "Agentic AI",
+    "Governance",
+    "MCP",
+    "SDK/API",
+    "GA",
+    "Observability",
+    "Reference Architecture",
+    "Corrections"
+  ],
+  "source_count": 5,
+  "developments": [
+    {
+      "product": "GitHub Copilot",
+      "event": "Copilotの新機能に対するglobal default policyの適用開始",
+      "event_type": "GA・段階的ポリシー適用",
+      "date": "2026-10-22",
+      "summary": "GitHub Copilot Business/Enterpriseで、未設定の対象GA機能と対応クライアント機能にglobal default policyを適用する展開が10月22日に始まり、10月26日まで段階的に実施される。対象はFeatures & clientsおよびMCP servers in Copilotの適格設定。既に明示設定した機能は維持され、Previewはopt-inのまま。適用は一度限りで、後からglobal defaultを変更しても既に設定済みの個別機能は自動変更されない。",
+      "enterprise_implication": "管理者が未設定のままにしたMCP/agent機能の有効・無効状態が組織全体のglobal defaultに従って確定する。意図しない機能の利用拡大や監査上の空白を避けるため、明示ポリシーを優先する必要がある。",
+      "use_cases": [
+        "企業内coding agentで利用を認めるMCP serversとクライアント機能を棚卸しし、業務上必要なものだけ明示的に許可する。"
+      ],
+      "technical_implications": [
+        "AI Controls → Copilot → Default policy for new featuresを確認し、MCP servers in Copilotを含む対象設定を個別に点検する。",
+        "10月26日までの段階展開と設定の一度限りの反映を踏まえ、前後の設定差分を監査証跡として記録する。"
+      ],
+      "sources": [
+        {
+          "title": "Global default for Copilot features generally available",
+          "url": "https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available/",
+          "published_at": "2026-10-22",
+          "publisher": "GitHub"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "source_supported_fields": [
+          "summary",
+          "date",
+          "event_type"
+        ],
+        "model_analysis_fields": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    },
+    {
+      "product": "GitHub Copilot usage metrics API",
+      "event": "社内custom skills・agents・MCP serversの実名別利用メトリクス",
+      "event_type": "API機能改善",
+      "date": "2026-10-22",
+      "summary": "企業・組織向けCopilot usage metrics APIで、`totals_by_skill`、`totals_by_custom_agent`、`totals_by_mcp`、`totals_by_slash_cmd`、`totals_by_plugin`が、従来のother/custom集計に代えて設定済みの名称を返す。各配列の表示件数は5から最大25へ拡大。Copilot CLI 1.0.97以上やCopilot SDK v1.0.21以上などクライアント要件があり、IDE内蔵chat telemetryは対象外。計測はクライアントtelemetryに依存し過少計上の可能性がある。",
+      "enterprise_implication": "社内で配布したMCP serversやcustom agentsの採用状況を、利用者数だけでなくコンポーネント別に可視化できる。使われていないツールの整理や教育投資の判断に役立つ。",
+      "use_cases": [
+        "社内共通MCP（Dataverse参照、社内ナレッジ検索など）の導入後、日次・28日単位の利用推移を把握し、維持コストと価値を比較する。"
+      ],
+      "technical_implications": [
+        "利用レポートで名称別の`totals_by_*`を収集し、古いクライアントやtelemetry無効化による欠測を注記する。",
+        "名称は最大128文字で表示されるため、社内命名規則とレポートの共有範囲を定める。",
+        "正確な請求額やアクセス監査の代替ではなく、利用傾向の指標として扱う。"
+      ],
+      "sources": [
+        {
+          "title": "Custom skills, agents, and MCP servers in usage metrics API",
+          "url": "https://github.blog/changelog/2026-10-22-custom-skills-agents-and-mcp-servers-in-usage-metrics-api/",
+          "published_at": "2026-10-22",
+          "publisher": "GitHub"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "source_supported_fields": [
+          "summary",
+          "date",
+          "event_type"
+        ],
+        "model_analysis_fields": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    },
+    {
+      "product": "GitHub Copilot impact dashboard",
+      "event": "agentic coding利用状況の業界ベンチマーク",
+      "event_type": "ダッシュボード機能改善",
+      "date": "2026-10-22",
+      "summary": "Copilot impact dashboardにIndustry comparisonが追加された。企業規模・業種ごとにagent-first/multi-agent利用者の比率や、agentic利用者と非利用者のPR merge率を、参加企業の集計値と比較できる。参加はopt-inで既定では無効。比較は日次更新され、データ所在地指定のGitHub Enterprise Cloudでは同一リージョンの参加者のみで比較する。ベンチマークはdashboard専用でusage metrics APIやエクスポートには含まれない。",
+      "enterprise_implication": "自社のAI coding導入状況を業界内の相対位置で評価できる。ただし利用率やPR merge率は生産性・品質の直接指標ではなく、因果的な効果測定には不十分。",
+      "use_cases": [
+        "開発組織のCopilot導入状況を四半期レビューし、業界中央値と社内のPRリードタイム・欠陥率を並べて評価する。"
+      ],
+      "technical_implications": [
+        "利用する場合はopt-in時のデータ提供方針を情報セキュリティ部門と確認する。",
+        "peer groupの標本数が少ない場合は順位が表示されない、またはより広い比較群が使われる。",
+        "ベンチマークはAPIでは取得できないため、社内BI連携の自動取得対象として前提にしない。"
+      ],
+      "sources": [
+        {
+          "title": "Industry comparisons in the Copilot impact dashboard",
+          "url": "https://github.blog/changelog/2026-10-22-industry-comparisons-in-the-copilot-impact-dashboard/",
+          "published_at": "2026-10-22",
+          "publisher": "GitHub"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "source_supported_fields": [
+          "summary",
+          "date",
+          "event_type"
+        ],
+        "model_analysis_fields": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    }
+  ],
+  "clarifications": [
+    {
+      "product": "Work IQ MCP",
+      "topic": "2026-10-22 briefの検索対象に関する訂正",
+      "fact": "Microsoft Learnの`retrieve`仕様ではDataverseとPower BIは現時点のサポート対象外で、将来のroadmap sources。Dataverseは近い将来の優先事項ではなく提供時期未確約。前日briefの「Dataverse等を検索可能」という記載は誤り。Work IQは委任認証でユーザー権限の範囲内を検索する。",
+      "implication": "Dataverseの案件データは当面Dataverse Web API等の別ツールで取得し、Work IQのメール・会議・SharePoint検索とアプリケーション層で統合する。",
+      "source": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/mcp/retrieve"
+    },
+    {
+      "product": "Microsoft Foundry",
+      "topic": "2026-10-22 briefのworkflows移行先に関する補足",
+      "fact": "Microsoft LearnはFoundryポータル内workflowsを2026-12-01に廃止予定とし、新規ワークフローにはMicrosoft Agent Frameworkを案内。既存定義はHosted Agentsへの移行等が可能で、Azure Logic Appsはビジュアル・ローコードオーケストレーション向けの選択肢。Logic Appsだけが唯一の推奨移行先ではない。",
+      "implication": "既存ワークフローをAgent Framework / Hosted Agents / Logic Appsの要件別に振り分ける。",
+      "source": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/workflow"
+    }
+  ]
+}
