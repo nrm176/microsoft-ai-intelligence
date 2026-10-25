@@ -1,0 +1,191 @@
+{
+  "id": "microsoft-ai-brief-2026-10-26",
+  "date": "2026-10-26",
+  "coverage_window": {
+    "start": "2026-10-23T00:00:00+09:00",
+    "end": "2026-10-26T08:09:52+09:00",
+    "additional_prior_announcement": "2026-10-21（前回未収録）"
+  },
+  "generated_at": "2026-10-26T08:09:52+09:00",
+  "language": "ja",
+  "source_count": 5,
+  "products": [
+    "Microsoft Contact Center Intelligence",
+    "Copilot Studio",
+    "Microsoft IQ",
+    "GitHub Copilot usage metrics API",
+    "GitHub Copilot",
+    "Microsoft Teams",
+    "GitHub Apps",
+    "Enterprise governance",
+    "GitHub Secret Protection",
+    "Public monitoring"
+  ],
+  "topics": [
+    "Work IQ",
+    "Copilot Studio",
+    "Agentic AI",
+    "Enterprise AI",
+    "SDK/API",
+    "Governance",
+    "Security",
+    "Licensing"
+  ],
+  "developments": [
+    {
+      "product": "Microsoft Contact Center Intelligence / Copilot Studio / Microsoft IQ",
+      "event": "既存コンタクトセンターへAgentic AIを追加するMicrosoft Contact Center Intelligence（CCI）のPublic Preview",
+      "event_type": "public_preview",
+      "announcement_date": "2026-10-21",
+      "summary": "【一次情報で確認】MicrosoftはCCIをグローバルPublic Preview（オーストリアを除く）で公開。既存のコンタクトセンターを置き換えず、Open Connectorで接続し、Customer Assist Agentによる音声・デジタルのセルフサービス、Quality Assurance Agentによる対話品質評価を追加できる。Service Operations Agentとリアルタイム評価は今後提供予定。Copilot Creditsによる従量課金で、接続先ベンダーのAPI・音声チャネル料金は別途発生する場合がある。",
+      "enterprise_implication": "【分析】既存の電話基盤を維持したまま段階導入できるため、コールセンター刷新を伴わずにAIの投資対効果を検証できる。CRM・Microsoft IQ・業務APIの接続と、品質評価・有人転送を分離して設計できる。",
+      "use_cases": [
+        "【提案】建設・不動産の入居者問い合わせ（設備故障・修繕受付・進捗照会）を一次受付し、本人確認と条件判定後に担当者へ引き継ぐ。",
+        "【提案】通話記録の品質評価を標準指標と独自指標で実施し、苦情・コンプライアンスリスクを可視化する。"
+      ],
+      "technical_implications": [
+        "【分析】音声フローは決定論的な認証・業務ルールと生成的な質問応答を組み合わせ、有人転送時に会話コンテキストを維持する。",
+        "【分析】音声生体認証の同意、保存・削除、本人確認の代替手段を先に設計する。",
+        "【事実】リアルタイム評価・Service Operations Agentは今回のPublic PreviewですべてGAではない。"
+      ],
+      "sources": [
+        {
+          "title": "Microsoft Contact Center Intelligence: Transforming customer experience at agentic speed",
+          "url": "https://www.microsoft.com/en-us/dynamics-365/blog/business-leader/2026/10/21/microsoft-contact-center-intelligence-transforming-customer-experience-at-agentic-speed/",
+          "published_at": "2026-10-21",
+          "type": "primary"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "newness": "前回brief未収録の重要発表（10月21日）"
+    },
+    {
+      "product": "GitHub Copilot usage metrics API",
+      "event": "totals_by_clientでOpenCode・Codex・Claude Codeなどのクライアント別モデル使用量を取得",
+      "event_type": "api_improvement",
+      "announcement_date": "2026-10-23",
+      "summary": "【一次情報で確認】企業・組織・ユーザー単位の1日/28日レポートにtotals_by_clientが追加された。client（opencode、claude_code、codex、copilot_cli、vscode、jetbrains等）、request_count、session_count、token_usage、totals_by_model、model_selection_modeを返す。サーバー側のモデルリクエスト計測によりIDE外の利用も集計できる。",
+      "enterprise_implication": "【分析】前回briefのMCP・Skills別利用計測に加え、どのAI開発クライアントがどのモデルをどれだけ利用したかを把握でき、開発ツール投資とモデル統制の判断材料になる。",
+      "use_cases": [
+        "【提案】JetBrains、Copilot CLI、Codex、Claude Code、OpenCodeなどの社内利用量をクライアント別に可視化し、モデル・トークン・セッション単位で比較する。"
+      ],
+      "technical_implications": [
+        "【事実】request_countはユーザープロンプト数ではなくモデル呼び出し数。clientは統合IDによるベストエフォート分類で認証済みの厳密なクライアントIDではない。",
+        "【分析】利用者別集計を扱う際は最小権限、集計粒度、保持期間を設定し、請求額や作業生産性の代替指標と誤認しない。"
+      ],
+      "sources": [
+        {
+          "title": "Usage metrics API adds usage from tools like OpenCode",
+          "url": "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode/",
+          "published_at": "2026-10-23",
+          "type": "primary"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "newness": "10月23日の新規API拡張"
+    },
+    {
+      "product": "GitHub Copilot / Microsoft Teams",
+      "event": "TeamsのGitHub統合アプリからIssue通知を起点に修正PRを作成可能に",
+      "event_type": "feature_improvement",
+      "announcement_date": "2026-10-23",
+      "summary": "【一次情報で確認】新しいGitHub app in Teamsは通知とCopilotを統合し、チャネル・グループ・個人チャットのIssue通知から@GitHubで調査・修正・Pull Request作成へ進められる。旧GitHub appはGitHub (deprecated)に改称され、2026年11月16日に廃止予定。既存のGitHub notificationsアプリは最新版へ更新できる。",
+      "enterprise_implication": "【分析】Teamsで発生した不具合の報告からGitHub上の修正PRまでを同一の協業フローでつなげられる。業務担当者がGitHub画面へ移動する必要性を減らす。",
+      "use_cases": [
+        "【提案】社内ポータルの障害報告をTeamsに集約し、@GitHubで原因調査とDraft PR作成を依頼、開発者がテストとレビュー後にマージする。"
+      ],
+      "technical_implications": [
+        "【事実】2026年11月16日までに旧GitHubアプリ利用の有無を確認する必要がある。",
+        "【分析】Teams通知内容は信頼できない入力として扱い、書き込み対象リポジトリの権限・CI・PR承認を必須とする。"
+      ],
+      "sources": [
+        {
+          "title": "Turn notifications into code with GitHub Copilot in Teams",
+          "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams/",
+          "published_at": "2026-10-23",
+          "type": "primary"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "newness": "10月23日の統合アプリ更新・廃止日明確化"
+    },
+    {
+      "product": "GitHub Apps / Enterprise governance",
+      "event": "Enterprise単位でのGitHub AppsインストールがGA、管理・セキュリティAPI権限を拡張",
+      "event_type": "ga",
+      "announcement_date": "2026-10-23",
+      "summary": "【一次情報で確認】GitHub AppsをEnterpriseにインストールする機能がGA。Enterpriseのリポジトリポリシー、rulesets、bypass request、2FA要件、IP allowlistなどを扱う権限・API範囲が拡大した。Classic PATを使っていた一部の管理自動化をGitHub Appへ移行しやすくなる。",
+      "enterprise_implication": "【分析】AIエージェントやGitHub Actionsから管理APIを呼び出す際、個人の長期PATに依存しない認証設計へ移行しやすい。ただし広い管理権限を持つAppは攻撃面を増やすため権限を細分化すべき。",
+      "use_cases": [
+        "【提案】社内の複数リポジトリに対し、branch rulesetsやセキュリティ設定の差分検出を専用GitHub Appで定期実行する。"
+      ],
+      "technical_implications": [
+        "【分析】App installation tokenの短期利用と権限最小化、管理操作の監査、重要設定の変更承認を組み合わせる。",
+        "【事実】Enterprise権限を有効にするにはGitHub Appの設定で必要なpermissionsを指定する。"
+      ],
+      "sources": [
+        {
+          "title": "Enterprise installations for GitHub Apps generally available",
+          "url": "https://github.blog/changelog/2026-10-23-enterprise-installations-for-github-apps-generally-available/",
+          "published_at": "2026-10-23",
+          "type": "primary"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "newness": "10月23日のGA"
+    },
+    {
+      "product": "GitHub Secret Protection / Public monitoring",
+      "event": "公開リポジトリ上の認証情報漏えい監視に有効性確認・API・Webhookを追加",
+      "event_type": "public_preview_improvement",
+      "announcement_date": "2026-10-23",
+      "summary": "【一次情報で確認】GitHub Public monitoringにアラートのDismiss/Reopen、変更履歴、フィルター、対応する秘密情報の継続的な有効性チェック、GET /enterprises/{enterprise}/secret-scanning/public-monitoring-alerts、secret_scanning_public_monitoring_alert webhookが追加された。Public Previewで、対象ライセンスに追加料金なし。",
+      "enterprise_implication": "【分析】公開リポジトリへのAPIキー流出をSIEMやインシデント対応へ接続しやすくなる。AI coding agentが生成・公開した設定ファイルに認証情報が混入するリスクへの防御層となる。",
+      "use_cases": [
+        "【提案】GitHub EnterpriseでAPIキーの流出を検知したらWebhookで社内セキュリティ窓口へ通知し、トークン失効・再発行・影響範囲調査をチケット化する。"
+      ],
+      "technical_implications": [
+        "【事実】アラートをFixed/Dismissedに変更しても漏えい済み資格情報の失効や公開リポジトリからの削除は実行されない。",
+        "【分析】Webhookを受けるAzure Functionsなどで署名検証・冪等化・失効処理を別途実装する。"
+      ],
+      "sources": [
+        {
+          "title": "Public monitoring adds triage, validity, API, and webhooks",
+          "url": "https://github.blog/changelog/2026-10-23-public-monitoring-adds-triage-validity-api-and-webhooks/",
+          "published_at": "2026-10-23",
+          "type": "primary"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "newness": "10月23日のPreview拡張"
+    }
+  ],
+  "priorities": [
+    {
+      "priority": "高",
+      "action": "Copilot usage metrics APIのtotals_by_clientをPoC"
+    },
+    {
+      "priority": "高",
+      "action": "旧GitHub Teamsアプリの移行確認（11月16日まで）"
+    },
+    {
+      "priority": "中",
+      "action": "CCIの段階導入PoC"
+    },
+    {
+      "priority": "中",
+      "action": "公開Secrets監視Webhookのインシデント連携"
+    },
+    {
+      "priority": "中",
+      "action": "GitHub Appsによる管理認証の最小権限化"
+    }
+  ],
+  "notes": "Work IQ・Foundry IQ等の独立した新規GA・料金変更は今回確認できた一次情報では見つからなかった。事実はsummary/sources、推論はenterprise_implication/use_cases/technical_implications内の【分析】【提案】で区別。"
+}
