@@ -1,0 +1,204 @@
+{
+  "id": "microsoft-ai-brief-2026-10-27",
+  "date": "2026-10-27",
+  "coverage_window": {
+    "start": "2026-10-24",
+    "end": "2026-10-27T08:34:10+09:00",
+    "note": "2026-10-21の前回未収録発表1件を含む"
+  },
+  "language": "ja",
+  "generated_at": "2026-10-27T08:34:10+09:00",
+  "products": [
+    "Work IQ",
+    "Microsoft Copilot Studio",
+    "Microsoft Copilot Cowork",
+    "Power Platform Admin",
+    "Azure AI Speech",
+    "Microsoft Foundry",
+    "Customer Conversation harness"
+  ],
+  "topics": [
+    "GA",
+    "Public Preview",
+    "Enterprise architecture",
+    "Governance",
+    "Copilot Credits",
+    "Speech-to-text",
+    "Agentic AI",
+    "MCP"
+  ],
+  "source_count": 6,
+  "developments": [
+    {
+      "id": "work-iq-copilot-studio-ga-20261023",
+      "product": "Work IQ / Microsoft Copilot Studio",
+      "event": "Work IQがGitHub Copilot harnessの新規エージェントで標準利用・GAと明記",
+      "event_type": "documentation_update_ga",
+      "announcement_date": "2026-10-23",
+      "availability": "Work IQ連携はGA。Business appsなど一部workloadはPreview。",
+      "summary": "【事実】Microsoft Learnの2026年10月23日更新で、Work IQがCopilot StudioのGitHub Copilot harnessにおいて一般提供され、新規エージェントに既定で追加されると明記された。SharePoint、OneDrive、Outlook mail、Teams、Calendar、Peopleをworkload単位で選択できる。Business apps（Dynamics 365とPower Apps）はPreviewとして別途有効化が必要。書き込み操作は既定で有効だが組織の権限・ポリシーが適用される。GitHub Copilot harnessとCopilot Creditsの従量課金を使用し、Work IQ用の個別spending policyは不要と記載。",
+      "enterprise_implication": "【分析】Work IQを新規エージェントの標準接続面として扱える一方、既定のworkload全選択・書き込み有効を前提に、最小権限とツール利用監査を導入すべき。従来の個別Mail/Teams/SharePointツールとはruntimeと課金方式が異なる。",
+      "use_cases": [
+        "【提案】案件担当者のメール・Teams・SharePointの意思決定経緯を引用付きで整理するエージェント。",
+        "【提案】Business apps（Preview）でDynamics 365/Power Appsの案件文脈を参照するPoC。ただしWork IQ MCP retrieve APIのDataverse直接検索サポートを意味しない。"
+      ],
+      "technical_implications": [
+        "【事実】workload選択はサービス単位で、個別SharePointサイトやメールボックスを選ぶ機能ではない。",
+        "【分析】最初にWork IQの対象workloadを絞り、書き込み権限とMicrosoft 365 admin centerのMCPポリシーを確認。地域により管理機能の展開差がある。",
+        "【分析】Work IQのCopilot Studio統合GAと、独立したWork IQ API/MCPのPreview・個別データソース対応状況を混同しない。"
+      ],
+      "sources": [
+        {
+          "title": "Work IQ in Copilot Studio (GitHub Copilot)",
+          "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/add-work-iq",
+          "publisher": "Microsoft Learn",
+          "published_at": "2026-10-23",
+          "evidence": "GA・既定追加・書き込み既定有効・Business apps Preview・課金の明記"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "Microsoft Learn 2026-10-23更新の記載",
+        "analysis": "社内DX向けの推奨・設計上の推論"
+      }
+    },
+    {
+      "id": "power-platform-admin-cowork-20261025",
+      "product": "Microsoft Copilot Cowork / Power Platform Admin",
+      "event": "Power Platform Admin pluginで自然言語によるテナントガバナンス分析",
+      "event_type": "public_preview",
+      "announcement_date": "2026-10-25",
+      "availability": "Public Preview。日本テナントでの利用可否は要確認。",
+      "summary": "【事実】MicrosoftがPower Platform Admin plugin for Copilot Coworkを紹介。アプリ・フロー・エージェント・環境の棚卸し、所有者、利用状況、コネクタ、ライセンス、容量、ガバナンスを自然言語で分析し、レポートや定期レビューへ展開できる。Plugin自体は読み取り専用で管理変更を自律実行しない。利用者にはGlobal Administrator、Power Platform Administrator、Dynamics 365 Administratorのいずれかの権限が必要。",
+      "enterprise_implication": "【分析】Power Platformの運用監査をダッシュボード固定型から対話型の例外検知・継続レビューへ拡張できる。管理者権限を要するため配布対象は限定すべき。",
+      "use_cases": [
+        "【提案】退職者が所有するPower Apps/Power Automate/Copilot Studio agentsの検出と移管候補の抽出。",
+        "【提案】既定環境で30日間に10人以上が利用したアプリを洗い出し、所有者とコネクタを含む週次報告を生成。"
+      ],
+      "technical_implications": [
+        "【事実】Microsoft 365 admin center > Agents > Tools > RegistryからPower Platform Admin (preview)をインストールし、CoworkのCustomizeで接続。Power Platform for Admins V2 OAuth Connectionを使用。",
+        "【事実】Copilot Coworkの利用権とCopilot Creditsの予算管理が別途必要。",
+        "【分析】管理操作は別の承認済みadmin workflowで実施し、生成レポートの根拠と権限を検証する。"
+      ],
+      "sources": [
+        {
+          "title": "Introducing the Power Platform Admin Plugin in Cowork: Agentic Governance with Natural Language",
+          "url": "https://techcommunity.microsoft.com/blog/copilot-studio-blog/introducing-the-power-platform-admin-plugin-in-cowork-agentic-governance-with-na/4567557",
+          "publisher": "Microsoft Tech Community",
+          "published_at": "2026-10-25"
+        },
+        {
+          "title": "Power Platform Admin in Cowork (preview)",
+          "url": "https://learn.microsoft.com/en-us/power-platform/admin/power-platform-admin-cowork",
+          "publisher": "Microsoft Learn",
+          "published_at": "2026-10-23"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "Microsoft公式ブログ・Microsoft Learn",
+        "analysis": "社内DX向けの適用可能性と統制設計"
+      }
+    },
+    {
+      "id": "azure-speech-llm-092026-20261026",
+      "product": "Azure AI Speech / Microsoft Foundry",
+      "event": "LLM Speech 09-2026で25言語追加、処理速度と認識精度を改善",
+      "event_type": "service_model_update",
+      "announcement_date": "2026-10-26",
+      "availability": "Fast Transcription APIで利用可能。サービス側で自動更新。",
+      "summary": "【事実】MicrosoftはLLM Speech 09-2026を発表。25言語を追加し、合計50言語・60以上のlocaleに対応。Microsoftの内部・公開ベンチマークでは旧2607比でToken Error Rate最大25%、Entity Error Rate最大37%改善、処理速度最大2倍と報告。多言語混在の自動検出、話者分離、phraseList（最大2,000語）に対応。モデル更新はサービス側で自動反映。",
+      "enterprise_implication": "【分析】多言語の通話記録、会議、問い合わせ音声を共通の文字起こし基盤で処理しやすくなる。公表改善値は特定ベンチマーク条件の最大値で、日本語業務音声の改善率を保証しない。",
+      "use_cases": [
+        "【提案】協力会社・海外取引先の多言語通話を文字起こしし、Azure Functionsで要約・分類・Dataverse連携。",
+        "【提案】建築・不動産固有名詞をphraseListに登録し、認識精度を評価。"
+      ],
+      "technical_implications": [
+        "【事実】Fast Transcription APIのtranscriptions:transcribeを利用し、diarization、phraseList、localesなどを設定可能。",
+        "【分析】日本語実録音でCER/WER、固有名詞誤認識、処理時間、コストを既存Azure Speech/他サービスと比較する。",
+        "【分析】録音同意、PIIマスキング、保存期間、リージョン対応を確認。"
+      ],
+      "sources": [
+        {
+          "title": "Announcing Azure AI Speech LLM 09-2026: Broader locale support",
+          "url": "https://devblogs.microsoft.com/foundry/announcing-azure-ai-speech-llm-09-2026/",
+          "publisher": "Microsoft Foundry Blog",
+          "published_at": "2026-10-26"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "Microsoft Foundry公式ブログのリリース情報・Microsoft公表評価値",
+        "analysis": "国内の通話分析用途に関する推奨"
+      }
+    },
+    {
+      "id": "customer-conversation-harness-20261021",
+      "product": "Microsoft Copilot Studio / Customer Conversation harness",
+      "event": "音声・チャット統合のCustomer Conversation harnessがPublic Preview（前回未収録）",
+      "event_type": "public_preview",
+      "announcement_date": "2026-10-21",
+      "availability": "Public Preview。機能ごとに段階展開。",
+      "summary": "【事実】Copilot StudioでCustomer Conversation harnessがPublic Preview。主エージェントが意図を分類し、専門サブエージェントへ振り分ける。音声とチャットを統合し、生成的なskillsと決定論的topicsを併用。Teams Phone、メール、有人担当者へのエスカレーションや、Contact Center Intelligenceとの連携が用意される。Copilot Creditsで従量課金。",
+      "enterprise_implication": "【分析】前回のContact Center Intelligence発表を実装面から補完する。既存の電話基盤を置き換えずに問い合わせ窓口をAI化する際のCopilot Studio側の開発面となる。",
+      "use_cases": [
+        "【提案】入居者の設備トラブルを音声・チャットで一次受付し、緊急度判定後にTeams Phoneまたは有人窓口へ引き継ぐ。"
+      ],
+      "technical_implications": [
+        "【事実】主エージェントとサブエージェント、接続エージェント（Foundry側で独立ALM）、決定論的Eventsを組み合わせる。",
+        "【事実】音声チャネルではエンドユーザーサインインが利用できないため、エンドユーザー認証を要するknowledge sourceはチャット専用になる場合がある。",
+        "【分析】本人確認・緊急時転送・監査をAPIと決定論的なフローで保証し、生成モデルは意図理解・自然言語応答に限定する。"
+      ],
+      "sources": [
+        {
+          "title": "Introducing the customer conversation harness in Microsoft Copilot Studio",
+          "url": "https://techcommunity.microsoft.com/blog/copilot-studio-blog/introducing-the-customer-conversation-harness-in-microsoft-copilot-studio/4563954",
+          "publisher": "Microsoft Tech Community",
+          "published_at": "2026-10-21"
+        },
+        {
+          "title": "Agents powered by the Customer Conversation harness overview (preview)",
+          "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/agents-experience/overview-customer-conversation",
+          "publisher": "Microsoft Learn",
+          "published_at": "2026-10-21"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "Microsoft公式発表・Microsoft Learn",
+        "analysis": "前回CCI発表との関連付けおよび業務適用案"
+      }
+    }
+  ],
+  "priority_actions": [
+    {
+      "priority": "高",
+      "action": "Work IQのworkload・書き込み設定とMCP管理を確認",
+      "when": "今週"
+    },
+    {
+      "priority": "高",
+      "action": "Power Platform Admin pluginで退職者所有資産の棚卸しを試行",
+      "when": "今月"
+    },
+    {
+      "priority": "中",
+      "action": "LLM Speech 09-2026の日本語・専門語精度を検証",
+      "when": "今月"
+    },
+    {
+      "priority": "中",
+      "action": "Customer Conversation harnessで一次受付PoC",
+      "when": "今四半期"
+    }
+  ],
+  "notes": [
+    "Work IQのCopilot Studio統合GAとWork IQ API/MCPの提供状態を混同しない。",
+    "Previewの日本リージョン対応と詳細料金は個別に確認が必要。"
+  ],
+  "provenance_policy": "各developmentのsummaryは一次情報に基づく事実を【事実】で示し、enterprise_implication/use_cases/technical_implications内の提案・推論を【分析】【提案】で区別。"
+}
