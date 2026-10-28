@@ -1,0 +1,200 @@
+{
+  "id": "microsoft-ai-brief-2026-10-29",
+  "date": "2026-10-29",
+  "coverage_window": {
+    "start": "2026-10-28T08:37:18+09:00",
+    "end": "2026-10-29T08:24:03+09:00"
+  },
+  "language": "ja",
+  "generated_at": "2026-10-29T08:24:03+09:00",
+  "source_count": 6,
+  "products": [
+    "Microsoft Foundry Agent Service",
+    "Microsoft Foundry Hosted Agents",
+    "GitHub Copilot / GitHub Octoverse 2026",
+    "Microsoft Azure / Microsoft 365 / FY27 Q1"
+  ],
+  "topics": [
+    "microsoft-foundry",
+    "copilot-harness",
+    "hosted-agents",
+    "agent-resilience",
+    "github-copilot",
+    "octoverse",
+    "azure-financial-results",
+    "enterprise-ai"
+  ],
+  "developments": [
+    {
+      "product": "Microsoft Foundry Agent Service",
+      "event": "Microsoft Copilot harnessをPublic Previewで提供",
+      "event_type": "public_preview",
+      "event_date": "2026-10-28",
+      "summary": "Microsoft Foundryのprompt agentに、Microsoft管理のCopilot harnessを選択できるPublic Previewが開始された。Skills、MCPなどの接続ツール、隔離された実行環境、ファイル処理、subagents、ソース管理可能な定義を組み合わせる。既存agentのharness切替は現Previewでは非対応。",
+      "enterprise_implication": "独自のエージェントループやサンドボックスを実装せずに、長時間・多段階の社内業務を試作できる。一方でPreviewはSLAがなく、実行環境の詳細な管理にも制約がある。",
+      "use_cases": [
+        "建設・不動産の法令・業界ニュースを調査し、根拠付きの日本語briefを生成",
+        "SharePoint資料と公開情報を分析し、案件会議向けの比較レポートを生成"
+      ],
+      "technical_implications": [
+        "Japan EastがPreview対応地域に含まれる。モデルとツールの地域対応は個別に確認する。",
+        "Python SDKはazure-ai-projects>=2.9.0。PromptAgentDefinitionのharnessにMicrosoftCopilotHarnessを設定できる。",
+        "azdのagent定義ではharness.type=microsoft_copilot_previewを指定。Responses APIから呼び出す。",
+        "会話単位のworkspaceは永続成果物ストアではないため、完成レポートはFoundry FilesやGitHub等へ保存する。",
+        "2026年12月1日からharness sandbox computeがUSD 0.0994/vCPU時、メモリがUSD 0.0118/GiB時の従量課金予定。モデル推論・外部ツール料金は別途。"
+      ],
+      "sources": [
+        {
+          "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+          "type": "公式発表",
+          "supports": "Preview開始、構成、課金"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/use-tools-skills-copilot-harness",
+          "type": "公式ドキュメント",
+          "supports": "SDK、制限、権限"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/limits-quotas-regions",
+          "type": "公式ドキュメント",
+          "supports": "Japan East、対応範囲"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja",
+      "provenance": {
+        "source_supported": [
+          "Public Preview開始",
+          "Japan East対応",
+          "SDKとharness指定",
+          "2026年12月1日からの課金予定"
+        ],
+        "analysis": [
+          "独自ループの実装負荷低減",
+          "社内レポート生成への適用"
+        ]
+      }
+    },
+    {
+      "product": "Microsoft Foundry Hosted Agents",
+      "event": "Long-running resilienceのGAを公式ブログで発表",
+      "event_type": "ga_announcement_with_documentation_discrepancy",
+      "event_date": "2026-10-28",
+      "summary": "Microsoft Foundry公式ブログは、Hosted Agents向けlong-running resilienceが今週GAになったと発表した。処理中断時に入力を保持して再実行できる。ただし同機能のMicrosoft Learn個別ページには依然としてPreview表記があり、公式資料間で成熟度表示が一致していない。",
+      "enterprise_implication": "長時間のエージェント処理に必要な復旧基盤をMicrosoft側で利用できる可能性が高まるが、業務状態のcheckpointと外部書き込みの重複防止はアプリ側の責任として残る。",
+      "use_cases": [
+        "図面や大量PDFの夜間解析を途中障害から復旧",
+        "Dataverse登録を含む定期集計の二重登録防止"
+      ],
+      "technical_implications": [
+        "work identityとinput identity、lease-based recovery、checkpointを分離する。",
+        "外部システムへの書き込みにはidempotency keyと処理済みwatermarkを用いる。",
+        "本番導入前にサービスGA状態・SLAをサポート窓口とドキュメントで再確認する。"
+      ],
+      "sources": [
+        {
+          "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+          "type": "公式発表",
+          "supports": "GA発表"
+        },
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/long-running-agent-resilience",
+          "type": "公式ドキュメント",
+          "supports": "復旧方式、Preview表記と責任分界"
+        }
+      ],
+      "confidence": "中（GA表記に資料間の不一致）",
+      "language": "ja",
+      "provenance": {
+        "source_supported": [
+          "公式ブログがGAと発表",
+          "Microsoft LearnにはPreview表記が残る",
+          "復旧はhandler再実行でありアプリ状態の完全復元ではない"
+        ],
+        "analysis": [
+          "checkpoint・冪等性を含む設計の必要性",
+          "GA状態の再確認を推奨"
+        ]
+      }
+    },
+    {
+      "product": "GitHub Copilot / GitHub Octoverse 2026",
+      "event": "AIエージェント活用の開発統計を公開",
+      "event_type": "industry_report",
+      "event_date": "2026-10-28",
+      "summary": "GitHubのOctoverse 2026によると、2026年9月にエージェントが初稿を作成したPull Requestは40%超（3月は17%）。GitHub Copilot利用者の61%が9月に複数モデルを使用。建設業に分類された公開リポジトリでは約9%にagent-opened Pull Requestがあり、比較対象業種の中で最高だった。",
+      "enterprise_implication": "エージェント利用を特別な実験ではなく通常の開発工程として扱い、レビュー品質・セキュリティ・費用を測定する必要性が高まっている。ただし観測データは因果的な生産性改善の証明ではない。",
+      "use_cases": [
+        "社内AI coding導入のKPIとしてPRレビュー時間、手戻り率、障害件数を追跡",
+        "建設・不動産DXチームでAIが生成したコードのレビュー手順を標準化"
+      ],
+      "technical_implications": [
+        "GitHub Copilot usage metricsとCI結果を突合し、モデル別・ツール別の品質を検証する。",
+        "agent検出はGitHubのテレメトリによる観測値で、未検出の利用があり得る。",
+        "PR件数・commit数を単独で開発生産性の指標にしない。"
+      ],
+      "sources": [
+        {
+          "url": "https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/",
+          "type": "GitHub公式調査",
+          "supports": "統計、調査対象、定義"
+        }
+      ],
+      "confidence": "高（GitHub観測統計として）",
+      "language": "ja",
+      "provenance": {
+        "source_supported": [
+          "エージェント初稿PRが9月40%超",
+          "複数モデル利用者61%",
+          "建設業公開リポジトリのagent PR約9%"
+        ],
+        "analysis": [
+          "社内KPIの見直し",
+          "因果効果とは区別"
+        ]
+      }
+    },
+    {
+      "product": "Microsoft Azure / Microsoft 365 / FY27 Q1",
+      "event": "Microsoftが2027年度第1四半期決算を公表",
+      "event_type": "financial_results",
+      "event_date": "2026-10-28",
+      "summary": "Microsoftの2027年度第1四半期（2026年7〜9月）売上高は923億ドルで前年比19%増、Azure売上高は48%増、Microsoft Cloud売上高は639億ドルで30%増、Microsoft 365 commercial cloud売上高は17%増。これらはAI専用売上高を示す数値ではない。",
+      "enterprise_implication": "クラウドと企業向けAIを含むプラットフォーム投資が拡大している。ただしAzureの増収率をAIエージェントの普及率や個別製品の収益性と同一視できない。",
+      "use_cases": [
+        "社内クラウド戦略・AI導入の予算策定時に、Microsoftの事業継続性と利用料金変動リスクを検討"
+      ],
+      "technical_implications": [
+        "ベンダーの売上成長とは独立して、Foundryのモデル推論・sandbox・ツール課金を業務単位で計測する。"
+      ],
+      "sources": [
+        {
+          "url": "https://www.microsoft.com/en-us/Investor/earnings/FY-2027-Q1/press-release-webcast",
+          "type": "Microsoft公式決算",
+          "supports": "売上、成長率、会計期間"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja",
+      "provenance": {
+        "source_supported": [
+          "2026年10月28日の公式決算",
+          "Azure前年比48%増",
+          "Microsoft Cloud639億ドル"
+        ],
+        "analysis": [
+          "費用管理を強化",
+          "売上指標とAI利用効果を区別"
+        ]
+      }
+    }
+  ],
+  "source_urls": [
+    "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+    "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/use-tools-skills-copilot-harness",
+    "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/limits-quotas-regions",
+    "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/long-running-agent-resilience",
+    "https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/",
+    "https://www.microsoft.com/en-us/Investor/earnings/FY-2027-Q1/press-release-webcast"
+  ]
+}
