@@ -1,0 +1,269 @@
+{
+  "id": "microsoft-ai-brief-2026-10-30",
+  "date": "2026-10-30",
+  "coverage_window": {
+    "start": "2026-10-29T08:24:03+09:00",
+    "end": "2026-10-30T08:44:12+09:00"
+  },
+  "generated_at": "2026-10-30T08:44:12+09:00",
+  "language": "ja",
+  "source_count": 9,
+  "products": [
+    "Microsoft 365 Copilot / Copilot connectors",
+    "GitHub Copilot Fusion",
+    "GitHub Enterprise / GitHub Copilot",
+    "GitHub Copilot Automations",
+    "GitHub Agentic Workflows / GitHub Actions",
+    "GitHub Copilot Memory / Dreaming",
+    "GitHub Copilot Plugins",
+    "Microsoft Copilot SDK"
+  ],
+  "topics": [
+    "microsoft-365-copilot",
+    "custom-mcp-connectors",
+    "copilot-fusion",
+    "copilot-licensing",
+    "agentic-workflows",
+    "shared-automations",
+    "copilot-memory",
+    "plugin-governance",
+    "copilot-sdk"
+  ],
+  "developments": [
+    {
+      "product": "Microsoft 365 Copilot / Copilot connectors",
+      "event": "Custom federated MCP connectorsの管理者配布",
+      "event_type": "release_notes_and_documentation",
+      "announced": "2026-10-27（リリースノート掲載、実装文書は10月19日更新）",
+      "status": "提供仕様を公式文書で確認、テナント・リージョン差あり",
+      "summary": "Microsoft 365管理センターのCopilot > Connectorsから、組織独自のMCPサーバーをcustom federated connectorとして登録・段階配布できる。Microsoft Entra SSO、OAuth 2.0、認証なしの接続方式を案内。ユーザー側の利用にはMicrosoft 365 Copilotライセンス等の条件がある。",
+      "enterprise_implication": "【分析】SharePointに複製せず社内業務APIの最新情報をCopilotへ提供する選択肢となる。接続の認証方式と業務データの行レベル認可はMCPサーバー側で設計する必要がある。",
+      "use_cases": [
+        "【提案】案件管理のDataverse Web APIを読み取り専用MCPで公開し、案件の進捗・担当者・期限をCopilotから照会する。"
+      ],
+      "technical_implications": [
+        "【事実】管理センターでMCP endpointと認証登録IDを指定し、User accessとStaged rolloutを設定する。",
+        "【分析】Entra SSOでユーザー権限を引き継ぎ、API側で対象案件の認可を実施。更新系ツールは別途承認し、最初はread-onlyとする。",
+        "【注意】これはWork IQ MCPのDataverse直接検索がGAになったことを意味しない。"
+      ],
+      "sources": [
+        {
+          "title": "Microsoft 365 Copilot release notes（2026-10-27）",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes"
+        },
+        {
+          "title": "Set up custom federated connectors",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/set-up-custom-Federated-connectors"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    },
+    {
+      "product": "GitHub Copilot Fusion",
+      "event": "マルチモデル選択・オーケストレーションがGA",
+      "event_type": "GA",
+      "announced": "2026-10-28",
+      "status": "GA",
+      "summary": "Copilot FusionがGA。Standard、High、Maxの努力レベルを選択し、Single、Cascade、Critiqueの方式でモデルを自動選択・組み合わせる。管理者は利用可能モデルと既定選択を制御できる。使用モデルごとの標準料金で課金され、有料Copilotプランでは期間限定でモデル費用30%割引。",
+      "enterprise_implication": "【分析】開発者の手動モデル切替を減らせる一方、複数モデルの呼び出しでコストが増える場合もあるため、単価とタスク完了率の両方で評価する必要がある。",
+      "use_cases": [
+        "【提案】React・Pythonの簡易修正、設計変更、コードレビューをStandard/High/Maxで比較し、品質・所要時間・費用を測定する。"
+      ],
+      "technical_implications": [
+        "【事実】VS Code、Copilot app、CLI、JetBrainsで利用可能。モデル選択は企業・組織のモデルポリシーに従う。",
+        "【分析】AI使用量の予算アラートと、モデル別・タスク別の成功率を併用する。"
+      ],
+      "sources": [
+        {
+          "title": "Route and orchestrate models with GitHub Copilot Fusion",
+          "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    },
+    {
+      "product": "GitHub Enterprise / GitHub Copilot",
+      "event": "GitHub EnterpriseにCopilotアクセスを含める新契約方式",
+      "event_type": "licensing",
+      "announced": "2026-10-28",
+      "status": "営業担当経由で提供、セルフサービスは段階提供",
+      "summary": "GitHub/Microsoftの営業担当と契約するGitHub Enterprise Cloud顧客向けに、ライセンスユーザー全員のCopilotアクセスを含む方式を提供。ユーザー単位の月間AIクレジットは含まず、AI利用は最初のリクエストから企業予算に従量計上。Enterprise非ライセンスユーザー向けCopilot Standaloneは月10米ドル。既存セルフサービス契約とCopilot Business/Enterprise製品は継続。",
+      "enterprise_implication": "【分析】固定席数課金からAI利用予算管理へ重点が移るため、利用率が低いチームと高負荷エージェントの費用配分を試算する必要がある。",
+      "use_cases": [
+        "【提案】開発部門のGitHub Enterprise契約更改時に、従来のCopilot Business/Enterpriseと新方式の実績費用を比較する。"
+      ],
+      "technical_implications": [
+        "【事実】予算枯渇時もコード補完は継続するが、Copilot Chat・code review・cloud agent等は利用可能予算が必要。",
+        "【分析】cost center、予算上限、アラート、利用帰属を導入前に設計する。"
+      ],
+      "sources": [
+        {
+          "title": "GitHub Enterprise now includes access to GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot/"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    },
+    {
+      "product": "GitHub Copilot Automations",
+      "event": "リポジトリ所有のShared Automationsを段階提供",
+      "event_type": "rollout",
+      "announced": "2026-10-28",
+      "status": "段階展開",
+      "summary": "Copilot Automationsで共有ワークフローを作成可能に。read権限者は閲覧でき、write権限者は編集できる。実行はCopilot名義、AIクレジットはリポジトリ所有者へ課金。作成者が退職しても継続する。組織リポジトリでは管理者によるcloud agent課金許可が必要。",
+      "enterprise_implication": "【分析】個人の認証や課金に依存した定期エージェントをチーム所有へ移行しやすくなる。",
+      "use_cases": [
+        "【提案】Issue受付時の不具合再現、PR準備時の画面キャプチャ、障害発生時の原因調査を共有自動化する。"
+      ],
+      "technical_implications": [
+        "【事実】作成時にPersonalかSharedかを選択し、後から種別変更できない。",
+        "【分析】GitHub Actionsの定型処理とCopilot Automationsの推論処理を分離し、権限・費用を管理する。"
+      ],
+      "sources": [
+        {
+          "title": "Build shared workflows for your team with Copilot Automations",
+          "url": "https://github.blog/changelog/2026-10-28-build-shared-workflows-for-your-team-with-copilot-automations/"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    },
+    {
+      "product": "GitHub Agentic Workflows / GitHub Actions",
+      "event": "自然言語Markdownからのagentic workflowがGA",
+      "event_type": "GA",
+      "announced": "2026-10-28",
+      "status": "GA",
+      "summary": "GitHub Agentic WorkflowsがGA。自然言語Markdownを標準GitHub Actions YAMLへコンパイルし、Issueトリアージ、CI障害解析、文書更新、テスト作成を自動化する。既定はread-only、Agent Workflow Firewall、safe outputs、脅威検出を備える。ARC、Docker-in-Docker、予算予測も拡充。",
+      "enterprise_implication": "【分析】既存のGitHub Actions runner・ポリシーを再利用しながらAI判断を組み込める。従来の決定論的CI/CDは維持するべき。",
+      "use_cases": [
+        "【提案】社内React/FunctionsリポジトリのCI失敗を調査し、原因と修正案をPRとして提示する。"
+      ],
+      "technical_implications": [
+        "【事実】`gh aw`でコンパイルし、既存Actionsへ組み込む。既定Copilot CLIエンジンにはCopilotライセンスが必要。",
+        "【分析】書き込みはsafe outputsと人間のPR承認を経由させ、予算・実行回数を監視する。"
+      ],
+      "sources": [
+        {
+          "title": "GitHub Agentic Workflows generally available",
+          "url": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    },
+    {
+      "product": "GitHub Copilot Memory / Dreaming",
+      "event": "MemoryがGA、DreamingがPublic Preview",
+      "event_type": "GA_and_preview",
+      "announced": "2026-10-28",
+      "status": "Memory GA / Dreaming Public Preview",
+      "summary": "Copilot Memoryが有料プランでGAとなり、開発者の好みやリポジトリ規約をセッション・クライアント間で保持できる。Dreamingはopt-inのPublic Previewで、過去の作業からメモリや指示ファイルの改善案を作成する。チェックイン済みファイルの変更はPRとして提案される。DreamingはAIクレジットを消費。",
+      "enterprise_implication": "【分析】開発標準の再説明を減らせるが、古い指示や誤った学習内容が継続的に利用されるリスクを管理する必要がある。",
+      "use_cases": [
+        "【提案】社内のPythonテスト規約やAzure Functionsの設計標準をメモリ化し、継続的にレビューする。"
+      ],
+      "technical_implications": [
+        "【事実】Dreamingは個人と管理者の有効化条件があり、リポジトリへのアクセス制御に従う。",
+        "【分析】重要な設計ルールはリポジトリの明示的な指示ファイルに置き、メモリは補助情報として監査する。"
+      ],
+      "sources": [
+        {
+          "title": "GitHub intelligence puts your code, context, and history to work",
+          "url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work/"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    },
+    {
+      "product": "GitHub Copilot Plugins",
+      "event": "リポジトリ既定Pluginsと企業統制がGA",
+      "event_type": "GA",
+      "announced": "2026-10-28",
+      "status": "GA",
+      "summary": "VS Code、Copilot CLI、Copilot appでリポジトリ既定Pluginsと企業管理設定がGA。企業管理者は承認済みmarketplaceを指定し、Pluginの必須化・禁止を行える。企業管理設定がリポジトリや個人設定より優先される。",
+      "enterprise_implication": "【分析】社内標準の開発支援Pluginを配布しつつ、未承認の外部PluginやMCP経由のデータ流出リスクを抑制できる。",
+      "use_cases": [
+        "【提案】社内DXのGitHubリポジトリに標準セキュリティ検査Pluginを指定し、外部marketplaceの導入を統制する。"
+      ],
+      "technical_implications": [
+        "【事実】企業管理設定はGitHub Enterprise Cloudの所定のCopilot Business/Enterpriseライセンスに対応。",
+        "【分析】MCPサーバーの権限、Pluginの配布元、コードレビュー基準を一体で管理する。"
+      ],
+      "sources": [
+        {
+          "title": "Repository plugin defaults and enterprise plugin controls generally available",
+          "url": "https://github.blog/changelog/2026-10-28-repository-plugin-defaults-and-enterprise-plugin-controls-generally-available/"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    },
+    {
+      "product": "Microsoft Copilot SDK",
+      "event": "GitHub Copilot SDKからMicrosoft Copilot SDKへの名称・管理主体移行",
+      "event_type": "SDK_announcement",
+      "announced": "2026-10-28",
+      "status": "段階的移行、直ちに変更不要",
+      "summary": "GitHub Copilot SDKをMicrosoft Copilot SDKへ段階的に移行すると発表。リポジトリをMicrosoft組織へ移動し、Microsoft Copilot harnessの共通SDKとして位置づける。既存のパッケージ名・名前空間は移行期間中に旧名称が残る。",
+      "enterprise_implication": "【分析】Copilot harnessの開発基盤がMicrosoft製品群に広がるため、SDKのリポジトリ・バージョン管理と互換性確認を継続する必要がある。",
+      "use_cases": [
+        "【提案】社内SDKラッパーの依存管理に新旧名称を記録し、破壊的変更が出るまで既存コードを維持する。"
+      ],
+      "technical_implications": [
+        "【事実】現時点で既存ユーザーの即時変更は不要。",
+        "【分析】CIでSDKの更新を検証し、名前変更だけを理由に不要な移行を急がない。"
+      ],
+      "sources": [
+        {
+          "title": "GitHub Copilot SDK is becoming Microsoft Copilot SDK",
+          "url": "https://github.blog/changelog/2026-10-28-github-copilot-sdk-is-becoming-microsoft-copilot-sdk/"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    }
+  ],
+  "priorities": [
+    {
+      "priority": "高",
+      "action": "Microsoft 365のcustom federated MCP connectorをread-onlyの社内APIで検証し、Entra SSO・ユーザー認可・段階配布を確認"
+    },
+    {
+      "priority": "高",
+      "action": "GitHub Enterpriseの新Copilot契約方式を現行契約と比較し、AIクレジット消費の上限を試算"
+    },
+    {
+      "priority": "高",
+      "action": "GitHub Agentic Workflows GAとShared Automationsを比較し、個人依存のない定期処理を選定"
+    },
+    {
+      "priority": "中",
+      "action": "Copilot FusionのStandard/High/Maxを同一タスクで比較し、品質・費用・処理時間を測定"
+    },
+    {
+      "priority": "中",
+      "action": "Copilot Memory/Dreamingと企業Pluginポリシーの許可範囲を確認"
+    }
+  ],
+  "notes": [
+    "2026年10月28日の前回未収録発表を含む。",
+    "Work IQ APIの従量課金は2026年6月時点の既存制度であり、新発表として計上しない。",
+    "出典確認済みの事実はsummaryとtechnical_implicationsの【事実】、分析・提案はenterprise_implicationとuse_casesに分離。"
+  ],
+  "source_urls": [
+    "https://learn.microsoft.com/en-us/microsoft-365/copilot/release-notes",
+    "https://learn.microsoft.com/en-us/microsoft-365/copilot/connectors/set-up-custom-Federated-connectors",
+    "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/",
+    "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot/",
+    "https://github.blog/changelog/2026-10-28-build-shared-workflows-for-your-team-with-copilot-automations/",
+    "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
+    "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work/",
+    "https://github.blog/changelog/2026-10-28-repository-plugin-defaults-and-enterprise-plugin-controls-generally-available/",
+    "https://github.blog/changelog/2026-10-28-github-copilot-sdk-is-becoming-microsoft-copilot-sdk/"
+  ]
+}
