@@ -1,0 +1,79 @@
+{
+  "id": "microsoft-ai-brief-2026-11-02",
+  "date": "2026-11-02",
+  "coverage_window": {
+    "start": "2026-10-30",
+    "end": "2026-11-02"
+  },
+  "language": "ja",
+  "generated_at": "2026-11-02T08:51:27+09:00",
+  "source_count": 2,
+  "products": [
+    "GitHub Copilot Fusion",
+    "GitHub Copilot app"
+  ],
+  "topics": [
+    "ローカルモデル",
+    "アプリケーションセキュリティ"
+  ],
+  "developments": [
+    {
+      "product": "GitHub Copilot Fusion",
+      "event": "ローカルモデルとクラウドモデルの自動ルーティング",
+      "event_type": "experimental_preview",
+      "summary": "10月28日、Copilot Fusionがローカルモデルの選択を実験的Previewとして追加。Copilot CLIではmacOS、Windows、LinuxのOpenAI互換ローカルサーバーを利用できる。Copilot appの自動ルーティングは現時点でWindows ML管理モデルに限定。",
+      "enterprise_implication": "端末推論を組み合わせてクラウド推論費用を削減できる可能性があるが、ルーティング判断はクラウドで実施され、完全オフライン運用にはならない。",
+      "use_cases": [
+        "Mac上のローカルLLMとクラウドモデルをCopilot CLIで併用し、Pythonの軽微な修正と複雑な設計を振り分けるPoC"
+      ],
+      "technical_implications": [
+        "Copilot CLIのexperimental modeとローカルOpenAI互換サーバーを設定する",
+        "対象モデルの対応状況とメモリ要件を確認する",
+        "機密コードの送信境界と実際のモデル利用料を検証する"
+      ],
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-10-28-github-copilot-fusion-now-supports-selection-of-local-models/",
+          "published_at": "2026-10-28",
+          "type": "primary"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "fact": "GitHub Changelogに明記",
+        "analysis": "社内DXへの適用と費用削減は推論"
+      }
+    },
+    {
+      "product": "GitHub Copilot app",
+      "event": "GitHub security extensionでCode Scanningアラートを修正支援",
+      "event_type": "public_preview",
+      "summary": "10月28日、GitHub security extensionがPublic Previewに。既存のCode Scanningアラートを閲覧し、Copilotに説明・修正を依頼できる。修正はローカル作業コピーに限定され、コミット・pushは自動実行されない。",
+      "enterprise_implication": "脆弱性検知と修正案作成を同一開発環境に集約できる。Private repositoryのアラート表示にはGitHub Code Security等の条件がある。",
+      "use_cases": [
+        "社内React/Next.jsアプリのCode Scanningアラートを優先度順に確認し、修正案をCIとレビューで検証する"
+      ],
+      "technical_implications": [
+        "copilot plugin install github-security@awesome-copilot で導入する",
+        "/security-reviewでローカル差分を確認する",
+        "Copilot Business/Enterpriseでは管理者ポリシーとPlugin許可を確認する",
+        "Explain・FixはAI creditsを消費する"
+      ],
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app/",
+          "published_at": "2026-10-28",
+          "type": "primary"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "fact": "GitHub Changelogに明記",
+        "analysis": "適用シナリオと推奨統制は分析"
+      }
+    }
+  ],
+  "editorial_note": "対象期間内の独立した重大発表を確認できなかったため、前回未収録の10月28日一次情報を補足。"
+}
