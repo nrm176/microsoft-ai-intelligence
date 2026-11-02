@@ -1,0 +1,69 @@
+{
+  "id": "microsoft-ai-brief-2026-11-03",
+  "date": "2026-11-03",
+  "coverage_window": {
+    "start": "2026-11-02T08:00:00+09:00",
+    "end": "2026-11-03T08:17:27+09:00"
+  },
+  "generated_at": "2026-11-03T08:17:27+09:00",
+  "language": "ja",
+  "products": [
+    "Work IQ",
+    "Foundry IQ",
+    "Microsoft Foundry",
+    "Microsoft 365 Copilot",
+    "Copilot Studio",
+    "GitHub Copilot"
+  ],
+  "topics": [
+    "公式更新監視",
+    "GA・Preview",
+    "SDK/API",
+    "企業AIアーキテクチャ"
+  ],
+  "source_count": 4,
+  "developments": [],
+  "status": "重要な新規発表は確認できず",
+  "summary": "2026年11月2日付brief以降の重要な新規GA・Preview・SDK/API変更・料金改定を一次情報から確認できなかったため、重複掲載を避けました。",
+  "enterprise_implication": "新規性が低い情報の再掲を避け、既報のPoCと提供状態の検証を優先します。",
+  "use_cases": [
+    "GitHub Copilot Fusionのローカルモデルルーティングについて、Macで品質・速度・費用を比較します。"
+  ],
+  "technical_implications": [
+    "Work IQ、Foundry IQ、Copilot StudioのAPI対応、リージョン、課金条件を個別に検証します。"
+  ],
+  "provenance": {
+    "source_supported_facts": [
+      "Microsoft 365 Copilotの公開リリースノートの直近掲載日として2026年10月27日を確認。"
+    ],
+    "model_analysis": [
+      "今回の検索範囲では重要な新規発表を確認できず、既報を再掲しない判断をした。"
+    ],
+    "limitations": [
+      "今回の調査は公開一次情報の検索に基づき、全発表の網羅性は保証しない。"
+    ]
+  },
+  "sources": [
+    {
+      "title": "Microsoft 365 Copilot release notes",
+      "url": "https://learn.microsoft.com/en-us/copilot/microsoft-365/release-notes",
+      "last_confirmed": "2026-10-27"
+    },
+    {
+      "title": "Microsoft Foundry Blog",
+      "url": "https://devblogs.microsoft.com/foundry/",
+      "last_confirmed": null
+    },
+    {
+      "title": "GitHub Changelog",
+      "url": "https://github.blog/changelog/",
+      "last_confirmed": null
+    },
+    {
+      "title": "Microsoft Copilot Studio Blog",
+      "url": "https://techcommunity.microsoft.com/category/copilot-studio/blog/copilot-studio-blog",
+      "last_confirmed": null
+    }
+  ],
+  "confidence": "中"
+}
