@@ -1,0 +1,111 @@
+{
+  "id": "microsoft-ai-brief-2026-11-04",
+  "date": "2026-11-04",
+  "coverage_window": {
+    "start": "2026-11-02",
+    "end": "2026-11-04T08:55:13+09:00",
+    "timezone": "Asia/Tokyo"
+  },
+  "language": "ja",
+  "source_count": 3,
+  "products": [
+    "GitHub Copilot",
+    "JetBrains Air",
+    "Dependabot",
+    "Agent Package Manager",
+    "GitHub Actions"
+  ],
+  "topics": [
+    "agentic coding",
+    "agent dependencies",
+    "enterprise governance",
+    "CI/CD security"
+  ],
+  "developments": [
+    {
+      "product": "GitHub Copilot / JetBrains Air",
+      "event": "JetBrains AirでGitHub Copilotを利用可能",
+      "event_type": "release",
+      "summary": "2026年11月3日、GitHub CopilotがJetBrains Airに統合された。Agent Client Protocolを利用し、IDE内のローカル作業とAir Teams経由のクラウド作業を扱える。",
+      "enterprise_implication": "JetBrains IDE中心の開発チームが複数エージェントを並行利用できる一方、Air側の分析にはCopilot利用量が含まれず、Air管理者はCopilotの支出上限を設定できない。",
+      "use_cases": [
+        "PyCharmで複数のPython修正タスクを並行実行し、差分をレビューする",
+        "非本番リポジトリでAir Teamsのクラウド実行と既存Copilot運用を比較する"
+      ],
+      "technical_implications": [
+        "ACP統合。クラウドタスクは独立したVM上のDockerコンテナで実行される",
+        "クラウド実行にはAir Teams対応組織、Copilot契約、管理者による有効化が必要",
+        "個人契約と組織契約のタスク単位での選択は不可。課金と監査を別途確認する"
+      ],
+      "sources": [
+        {
+          "title": "GitHub Copilot is now available in JetBrains Air",
+          "url": "https://github.blog/changelog/2026-11-03-github-copilot-is-now-available-in-jetbrains-air/",
+          "published_at": "2026-11-03"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "GitHub公式Changelog",
+        "analysis": "企業での評価・統制上の提案"
+      }
+    },
+    {
+      "product": "GitHub Dependabot / Agent Package Manager",
+      "event": "APM依存関係のバージョン更新にDependabotが対応",
+      "event_type": "ga",
+      "summary": "2026年11月3日、Dependabot version updatesがAgent Package Managerのapm.ymlで宣言されたGit依存関係を更新し、存在するapm.lock.yamlを再生成できるようになった。github.comの全プランでGA。",
+      "enterprise_implication": "AIエージェントのSkills・Prompts・Instructionsをコードと同様に更新管理する運用を構築しやすくなる。ただしセキュリティ更新機能ではない。",
+      "use_cases": [
+        "社内エージェントが参照する共有SkillsをPRベースで更新・レビューする"
+      ],
+      "technical_implications": [
+        ".github/dependabot.ymlにapmエコシステム、対象ディレクトリ、更新スケジュールを設定する",
+        "更新PRに対して動作テスト・レビューを必須にする",
+        "GitHub Enterprise Serverは3.24で対応予定"
+      ],
+      "sources": [
+        {
+          "title": "Dependabot version updates support Agent Package Manager",
+          "url": "https://github.blog/changelog/2026-11-03-dependabot-version-updates-support-agent-package-manager/",
+          "published_at": "2026-11-03"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "GitHub公式Changelog",
+        "analysis": "エージェント依存関係の運用提案"
+      }
+    },
+    {
+      "product": "GitHub Actions",
+      "event": "公開リポジトリのpull_request_targetを12月2日から既定でブロック",
+      "event_type": "breaking_change_scheduled",
+      "summary": "2026年11月2日、GitHubは公開リポジトリでpull_request_targetイベントを既定でブロックする施行日を12月2日と告知。11月9日・16日に一時的な強制適用を実施する。非公開・内部リポジトリは対象外。",
+      "enterprise_implication": "外部PRからシークレットを利用する危険なワークフローを減らせるが、公開リポジトリのCIや自動レビューが停止する可能性がある。",
+      "use_cases": [
+        "公開OSSリポジトリのAIレビュー・ラベル付けワークフローを棚卸しする"
+      ],
+      "technical_implications": [
+        "Insightsのevaluate結果を確認し、必要なワークフローのみActions event policyで明示許可する",
+        "11月9日と16日の16:00–18:00 UTCのbrownoutに備える"
+      ],
+      "sources": [
+        {
+          "title": "pull_request_target blocked by default December 2",
+          "url": "https://github.blog/changelog/2026-11-02-pull_request_target-blocked-by-default-december-2/",
+          "published_at": "2026-11-02"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "GitHub公式Changelog",
+        "analysis": "CI/CDリスク評価の提案"
+      }
+    }
+  ],
+  "notes": "Work IQ・Foundry IQ・Microsoft 365 Copilot・Copilot Studioについて今回の調査で前回以降の独立した重要変更は確認できなかった。"
+}
