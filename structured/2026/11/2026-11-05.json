@@ -1,0 +1,83 @@
+{
+  "id": "microsoft-ai-brief-2026-11-05",
+  "date": "2026-11-05",
+  "coverage_window": {
+    "start": "2026-11-03",
+    "end": "2026-11-05T08:45:38+09:00"
+  },
+  "generated_at": "2026-11-05T08:45:38+09:00",
+  "language": "ja",
+  "source_count": 2,
+  "products": [
+    "GitHub Copilot",
+    "GitHub Copilot usage metrics API",
+    "Xcode"
+  ],
+  "topics": [
+    "BYOK",
+    "enterprise governance",
+    "API changes",
+    "Public Preview"
+  ],
+  "developments": [
+    {
+      "product": "GitHub Copilot usage metrics API",
+      "event": "BYOKと企業カスタムモデルの利用状況を分離して可視化",
+      "event_type": "API改善",
+      "date": "2026-11-03",
+      "summary": "【一次情報に基づく事実】Copilot usage metrics APIにローカルBYOKのused_local_byok、totals_by_local_byok、アクティブ利用者数が追加された。企業カスタムモデルはtotals_by_client内のis_custom_enterprise_modelで識別できる。1日・28日レポートに対応。",
+      "enterprise_implication": "【分析】Copilotホストモデル、開発者自身のAPIキー、Ollama・LM Studioなどのローカルモデルを区別し、開発AIの利用統制と費用配賦を改善できる。",
+      "use_cases": [
+        "【提案】Copilot CLIとLM Studioを併用する開発者のBYOK利用率を可視化する",
+        "【提案】企業契約モデルとCopilot標準モデルの利用状況を比較し、社内AI利用ポリシーを監査する"
+      ],
+      "technical_implications": [
+        "【事実】ローカルBYOKはクライアントのテレメトリに依存し、無効化時は過少計上される。トークン数も一部のプロバイダーで欠損し得る",
+        "【事実】企業カスタムモデルはサーバー側で観測され、過去日付へのバックフィルはない",
+        "【提案】APIの集計値を請求データと混同せず、費用分析では別途プロバイダーの請求実績と照合する"
+      ],
+      "sources": [
+        {
+          "title": "BYOK and enterprise custom models in the Copilot usage API",
+          "url": "https://github.blog/changelog/2026-11-03-byok-and-enterprise-custom-models-in-the-copilot-usage-api/",
+          "published_at": "2026-11-03"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja",
+      "provenance": {
+        "facts": "GitHub公式Changelog 2026-11-03",
+        "analysis": "企業導入上の推論・提案"
+      }
+    },
+    {
+      "product": "GitHub Copilot / Xcode",
+      "event": "Xcode標準coding assistantとの統合",
+      "event_type": "Public Preview",
+      "date": "2026-11-04",
+      "summary": "【一次情報に基づく事実】Xcode 27.3 betaから、Xcode内蔵coding assistantでGitHub Copilotを利用できるPublic Previewが開始された。macOS Tahoe 26.6以降が必要で、すべてのCopilotプランに対応する。既存のCopilot for Xcode拡張とは別の選択肢。",
+      "enterprise_implication": "【分析】iOS・macOSアプリ開発チームがXcode標準UIを通じてCopilotを導入しやすくなる。ただしbeta環境であり、全社標準化は時期尚早。",
+      "use_cases": [
+        "【提案】Swiftアプリのテスト補助やコード説明をXcode標準UIで試用する"
+      ],
+      "technical_implications": [
+        "【事実】Xcode > Settings > Intelligenceから設定する",
+        "【提案】既存拡張との機能差、管理ポリシー、開発端末のOS要件を比較する"
+      ],
+      "sources": [
+        {
+          "title": "GitHub Copilot is now available in Xcode’s coding assistant",
+          "url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant/",
+          "published_at": "2026-11-04"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja",
+      "provenance": {
+        "facts": "GitHub公式Changelog 2026-11-04",
+        "analysis": "企業導入上の推論・提案"
+      }
+    }
+  ],
+  "notes": "Work IQ、Foundry IQ、Foundry、Microsoft 365 Copilot、Copilot Studioについては、確認した一次情報で独立した重要な新発表を特定できなかった。"
+}
