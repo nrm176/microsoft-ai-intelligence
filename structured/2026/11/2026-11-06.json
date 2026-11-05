@@ -1,0 +1,125 @@
+{
+  "id": "microsoft-ai-brief-2026-11-06",
+  "date": "2026-11-06",
+  "coverage_window": {
+    "start": "2026-11-03",
+    "end": "2026-11-06"
+  },
+  "generated_at": "2026-11-06T08:05:14+09:00",
+  "language": "ja",
+  "source_count": 4,
+  "products": [
+    "Work IQ",
+    "SharePoint Tools",
+    "Microsoft Foundry",
+    "Azure Developer CLI",
+    "Foundry Local",
+    "GitHub Copilot"
+  ],
+  "topics": [
+    "MCP",
+    "agentic AI",
+    "SDK/CLI",
+    "GA",
+    "Public Preview",
+    "enterprise architecture"
+  ],
+  "developments": [
+    {
+      "product": "Work IQ / SharePoint Tools",
+      "event": "SharePoint ToolsのPublic Preview",
+      "event_type": "public_preview",
+      "announced_at": "2026-11-03",
+      "summary": "Work IQ MCPに60種類以上のSharePoint操作が追加された。リスト・ライブラリの検索、作成、更新、承認、共有、バージョン管理などに対応。WorkIQ.ReadとWorkIQ.Actの権限スコープが導入された。",
+      "enterprise_implication": "既存のMicrosoft 365権限を継承しながら、エージェントからSharePoint上の業務操作を行える。読み取りと変更権限の分離が重要。",
+      "use_cases": [
+        "社内規程ライブラリから根拠付き回答を生成",
+        "案件管理用SharePoint Listの項目作成・更新と承認処理"
+      ],
+      "technical_implications": [
+        "MCPエンドポイントはhttps://workiq.svc.cloud.microsoft/mcp",
+        "WorkIQAgent.Askのみでは/sharepointパスは見えない",
+        "パスとスキーマは実行時に発見し固定実装を避ける",
+        "Copilot Creditsの従量課金でMicrosoft 365 Copilotライセンスとは独立"
+      ],
+      "sources": [
+        {
+          "title": "Introducing SharePoint tools in Work IQ",
+          "url": "https://techcommunity.microsoft.com/blog/spblog/introducing-sharepoint-tools-in-work-iq/4569917"
+        },
+        {
+          "title": "SharePoint Tools for Work IQ",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/work-iq/sharepoint-iq"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "Microsoft公式ブログとLearnの仕様に基づく",
+        "analysis": "企業利用上の評価とユースケースは提案"
+      }
+    },
+    {
+      "product": "Microsoft Foundry / Azure Developer CLI",
+      "event": "microsoft.foundry拡張1.0がGA",
+      "event_type": "ga",
+      "announced_at": "2026-11-05",
+      "summary": "Azure Developer CLIのmicrosoft.foundry拡張バンドルがv1.0で一般提供。Hosted Agentsの初期化、ローカル実行、診断、監視、デプロイをazdから行える。",
+      "enterprise_implication": "エージェント設定とデプロイ構成をazure.yamlでコードと一緒に管理し、環境差分やCI/CDを標準化できる。",
+      "use_cases": [
+        "Python Agent Frameworkで作る社内エージェントのDev/UAT/Prod展開",
+        "評価データと採点基準をGitHub Actionsで継続実行"
+      ],
+      "technical_implications": [
+        "azd 1.37.0以降が必要",
+        "azd ext install microsoft.foundry",
+        "azd ai agent run / azd deploy / azd ai agent monitor --follow",
+        "必要に応じBicepまたはTerraformをejectして編集",
+        "Azureリソースとモデル推論には別途費用が発生"
+      ],
+      "sources": [
+        {
+          "title": "Microsoft Foundry extension for Azure Developer CLI is generally available",
+          "url": "https://devblogs.microsoft.com/foundry/microsoft-foundry-azure-developer-cli-ga/"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "Microsoft Foundry公式発表",
+        "analysis": "環境分離とCI/CD活用は提案"
+      }
+    },
+    {
+      "product": "Foundry Local / GitHub Copilot",
+      "event": "Qwen3.8-27Bのローカルagentic coding統合",
+      "event_type": "technical_release",
+      "announced_at": "2026-11-05",
+      "summary": "Foundry Local CLI 0.13.0以降とGitHub CopilotのBYOK接続を使い、Qwen3.8-27Bをローカルで実行する手順とNVIDIA GPU最適化を公開。INT4でモデルサイズ約18GB、24GB VRAM環境で最大64Kコンテキストを案内。",
+      "enterprise_implication": "ソースコードをローカルに保つ開発選択肢が増える一方、今回の最適化はNVIDIA向けでありMac対応は今後の計画。",
+      "use_cases": [
+        "機密性の高い社内コードのローカル補完・修正",
+        "ローカル推論とクラウドモデルの成功率・速度・費用比較"
+      ],
+      "technical_implications": [
+        "Foundry Local CLI 0.13.0以上、NVIDIA GPU 24GB VRAM以上が案内条件",
+        "GitHub Copilot appのModel providersでFoundry LocalのAPIエンドポイントを登録",
+        "Mac・AMD GPU向けの同最適化は未提供の計画段階",
+        "公開ベンチマークは特定環境の評価で一般化できない"
+      ],
+      "sources": [
+        {
+          "title": "Bring Agentic Coding On-Device with Foundry Local",
+          "url": "https://devblogs.microsoft.com/foundry/foundry-local-agentic-coding-qwen3-8-27b/"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "Microsoft Foundry公式発表",
+        "analysis": "社内PoCと比較評価は提案"
+      }
+    }
+  ],
+  "analysis": "Work IQの権限分離とFoundryの構成管理は、企業エージェントを安全に運用するうえで直接的な改善。ローカル推論はハードウェア制約を明示して比較する必要がある。"
+}
