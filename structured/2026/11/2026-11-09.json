@@ -1,0 +1,145 @@
+{
+  "id": "microsoft-ai-brief-2026-11-09",
+  "date": "2026-11-09",
+  "coverage_window": {
+    "start": "2026-11-05",
+    "end": "2026-11-09T08:43:52+09:00",
+    "timezone": "Asia/Tokyo"
+  },
+  "generated_at": "2026-11-09T08:43:52+09:00",
+  "language": "ja",
+  "source_count": 5,
+  "products": [
+    "GitHub Copilot code review",
+    "GitHub Copilot impact dashboard",
+    "GitHub Copilot usage metrics API",
+    "GitHub Copilot / Microsoft Teams"
+  ],
+  "topics": [
+    "agentic AI",
+    "enterprise governance",
+    "usage metrics",
+    "API changes",
+    "GA"
+  ],
+  "developments": [
+    {
+      "product": "GitHub Copilot code review",
+      "event": "コードレビュー設定のREST/GraphQL API管理とレビュー根拠の追跡",
+      "event_type": "API改善",
+      "summary": "2026年11月6日、企業・組織・リポジトリ単位でCopilot code review設定をAPI管理できるようになった。レビューの帰属、effort、使用したSkills・MCP servers・custom instructionsの情報を取得可能。",
+      "enterprise_implication": "AIコードレビューの設定統制と監査可能性が向上する。企業・組織設定APIはGitHub Appsとfine-grained PATに非対応で、認証設計に注意が必要。",
+      "use_cases": [
+        "社内リポジトリのレビュー強度とMCP使用設定を標準化",
+        "監査用にレビュー根拠とAI creditsを収集"
+      ],
+      "technical_implications": [
+        "リポジトリ設定APIではGitHub AppのAdministration read/write権限を利用可能",
+        "企業・組織設定エンドポイントではGitHub Apps・fine-grained PATは非対応",
+        "人間によるレビューとCIを維持"
+      ],
+      "sources": [
+        {
+          "title": "Copilot code review: API management and review overview updates",
+          "url": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates/",
+          "published": "2026-11-06"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja",
+      "provenance": {
+        "facts": "summaryおよびeventは一次情報に基づく",
+        "analysis": "enterprise_implication、use_cases、technical_implicationsは分析・提案を含む"
+      }
+    },
+    {
+      "product": "GitHub Copilot impact dashboard",
+      "event": "ChatとVS Code Agents windowの利用状況を追加",
+      "event_type": "メトリクス改善",
+      "summary": "2026年11月6日、Agent adoption chartにCopilot ChatとVS Code Agents windowを追加。28日レポートのcopilot_feature_engagement.totals_by_featureにchatとvscode_agentを追加した。",
+      "enterprise_implication": "AI導入状況の測定対象が拡大。ただし新機能はadoption phaseの判定対象外であり、過去データへの遡及適用もない。",
+      "use_cases": [
+        "開発者のChat中心利用とAgent利用を区別して社内定着度を把握"
+      ],
+      "technical_implications": [
+        "28日レポートの新フィールドをETLに追加",
+        "同一ユーザーが複数機能に計上されるため単純合算しない"
+      ],
+      "sources": [
+        {
+          "title": "Copilot impact dashboard adds chat and VS Code agent usage",
+          "url": "https://github.blog/changelog/2026-11-06-copilot-impact-dashboard-adds-chat-and-vs-code-agent-usage/",
+          "published": "2026-11-06"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja",
+      "provenance": {
+        "facts": "summaryおよびeventは一次情報に基づく",
+        "analysis": "enterprise_implication、use_cases、technical_implicationsは分析・提案を含む"
+      }
+    },
+    {
+      "product": "GitHub Copilot usage metrics API",
+      "event": "レビュー指摘対応率とテレメトリ欠損の可視化",
+      "event_type": "API改善",
+      "summary": "2026年11月5日、repos-1-dayにcopilot_code_reviewを追加し、total_comments_evaluatedとtotal_comments_addressedなどを取得可能にした。別の更新でclient_telemetry_present、usage_metrics_requirementsなども追加。",
+      "enterprise_implication": "単純なAI利用回数からレビューへの対応実績へ評価を進められる。ただし対応率は修正品質を直接証明せず、テレメトリ欠損も計測値を歪める。",
+      "use_cases": [
+        "チームごとにAIレビュー指摘の対応率と手戻りを比較",
+        "PyCharm/VS Codeの計測欠損を特定"
+      ],
+      "technical_implications": [
+        "対応率はtotal_comments_addressed / total_comments_evaluatedで算出し分母0を除外",
+        "指摘はPRマージ日に集計される",
+        "nullを0として処理しない"
+      ],
+      "sources": [
+        {
+          "title": "Usage metrics API adds code review details and addressed rate",
+          "url": "https://github.blog/changelog/2026-11-05-usage-metrics-api-adds-code-review-details-and-addressed-rate/",
+          "published": "2026-11-05"
+        },
+        {
+          "title": "Usage metrics API flags telemetry and version gaps",
+          "url": "https://github.blog/changelog/2026-11-05-usage-metrics-api-flags-telemetry-and-version-gaps/",
+          "published": "2026-11-05"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja",
+      "provenance": {
+        "facts": "summaryおよびeventは一次情報に基づく",
+        "analysis": "enterprise_implication、use_cases、technical_implicationsは分析・提案を含む"
+      }
+    },
+    {
+      "product": "GitHub Copilot / Microsoft Teams",
+      "event": "@GitHubのSlack・Teams連携がGA",
+      "event_type": "GA",
+      "summary": "2026年11月6日、@GitHub in Slack and TeamsのGAを発表。会話から不具合調査、Issue作成、修正、PR作成を行える。Teams Canvasで実装計画・差分・プレビューを共同確認できる。",
+      "enterprise_implication": "Teamsを起点とする開発依頼とGitHub実装の連携が強化された。前回紹介したTeams統合からGAへの提供状態変更として扱う。",
+      "use_cases": [
+        "社内ポータルの不具合をTeamsで報告し、修正PRまで生成"
+      ],
+      "technical_implications": [
+        "会話から作成されたIssue/PRに発端の帰属情報が記録される",
+        "PRマージ権限・レビュー・CIは独立管理する"
+      ],
+      "sources": [
+        {
+          "title": "@GitHub in Slack and Teams is generally available and more",
+          "url": "https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available/",
+          "published": "2026-11-06"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja",
+      "provenance": {
+        "facts": "summaryおよびeventは一次情報に基づく",
+        "analysis": "enterprise_implication、use_cases、technical_implicationsは分析・提案を含む"
+      }
+    }
+  ],
+  "overall_analysis": "AIコードレビューの統制・効果測定を強化し、Teamsから開発タスクを起動する統合が進展。利用指標は品質を直接証明しない。"
+}
