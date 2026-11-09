@@ -1,0 +1,68 @@
+{
+  "id": "microsoft-ai-brief-2026-11-10",
+  "date": "2026-11-10",
+  "coverage_window": {
+    "start": "2026-11-09T08:43:00+09:00",
+    "end": "2026-11-10T08:53:26+09:00"
+  },
+  "products": [
+    "Work IQ",
+    "Microsoft Foundry",
+    "Foundry IQ",
+    "Microsoft 365 Copilot",
+    "Copilot Studio",
+    "GitHub Copilot"
+  ],
+  "topics": [
+    "agentic AI",
+    "enterprise architecture",
+    "SDK/API",
+    "GA/preview",
+    "pricing",
+    "governance"
+  ],
+  "source_count": 4,
+  "language": "ja",
+  "generated_at": "2026-11-10T08:53:26+09:00",
+  "developments": [],
+  "status": "新規重要更新なし",
+  "summary": "確認したMicrosoftおよびGitHubの一次情報では、前回のbrief以降に新規収録すべき重要発表を確認できませんでした。",
+  "fact": "GitHub Changelogの確認できた直近のCopilot更新は11月6日付で、Microsoft Foundry Blogの直近掲載は11月5日付です。いずれも既報です。",
+  "analysis": "調査範囲において、社内DXアーキテクチャやライセンス計画を変更すべき新しい根拠はありません。",
+  "use_cases": [
+    "既報のWork IQ SharePoint toolsを読み取り専用から段階評価する",
+    "Foundry azd拡張のDev/UAT/Prodデプロイ差分を検証する"
+  ],
+  "technical_implications": [
+    "Entra IDと業務APIの認可を分離する",
+    "監査ログと評価をCI/CDに統合する"
+  ],
+  "sources": [
+    {
+      "title": "GitHub Changelog — November 2026",
+      "url": "https://github.blog/changelog/month/11-2026/"
+    },
+    {
+      "title": "Microsoft Foundry Blog",
+      "url": "https://devblogs.microsoft.com/foundry/"
+    },
+    {
+      "title": "Microsoft SharePoint Blog — SharePoint tools in Work IQ",
+      "url": "https://techcommunity.microsoft.com/blog/spblog/introducing-sharepoint-tools-in-work-iq/4569917"
+    },
+    {
+      "title": "GitHub Copilot changelog",
+      "url": "https://github.blog/changelog/label/copilot/"
+    }
+  ],
+  "confidence": "中（公開一次情報の調査範囲に限定）",
+  "provenance": {
+    "source_supported_facts": [
+      "直近の公開記事日付と内容を確認"
+    ],
+    "model_analysis": [
+      "アーキテクチャ変更不要との判断",
+      "継続PoCの提案"
+    ]
+  }
+}
