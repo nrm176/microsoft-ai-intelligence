@@ -1,0 +1,103 @@
+{
+  "id": "microsoft-ai-brief-2026-11-11",
+  "date": "2026-11-11",
+  "coverage_window": "2026-11-09〜2026-11-11 08:36 JST",
+  "generated_at": "2026-11-11T08:36:14+09:00",
+  "language": "ja",
+  "source_count": 3,
+  "products": [
+    "Azure Content Understanding",
+    "GitHub Copilot"
+  ],
+  "topics": [
+    "agentic extraction",
+    "GA",
+    "model governance",
+    "data retention",
+    "enterprise AI"
+  ],
+  "developments": [
+    {
+      "product": "Azure Content Understanding",
+      "event": "Agentic Extractionの具体的な実装・使い分けを公開",
+      "event_type": "preview_guidance",
+      "summary": "11月9日、MicrosoftはPreviewのagentic modeについて、複数ページの表・グラフ・ログを探索、計算、検証して構造化結果を返す実装例を公開。API 2026-06-01-preview、config.workflow=agenticを案内した。",
+      "enterprise_implication": "複雑な帳票の抽出を一律に高コストなエージェント処理へ移すのではなく、標準モードと使い分けられる。",
+      "use_cases": [
+        "建築見積書の複数ページにまたがる明細合計の照合",
+        "図面・工事帳票の複雑な表から条件付き数量を集計"
+      ],
+      "technical_implications": [
+        "標準モードを既定とし、低信頼度や複数ページ照合のみagenticへ振り分ける",
+        "代表文書で正答率、遅延、トークン費用、根拠追跡を比較する"
+      ],
+      "sources": [
+        {
+          "title": "When one pass isn’t enough: agentic mode in Azure Content Understanding",
+          "url": "https://devblogs.microsoft.com/foundry/when-one-pass-isnt-enough-agentic-mode-in-azure-content-understanding/",
+          "published_at": "2026-11-09"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "fact": "Microsoft公式ブログにPreviewとAPI設定例が明記",
+        "analysis": "業務適用・ルーティング設計は提案"
+      }
+    },
+    {
+      "product": "GitHub Copilot",
+      "event": "Claude Fable 5.2がGA、データ保持条件に注意",
+      "event_type": "ga_model",
+      "summary": "11月9日、Claude Fable 5.2がGitHub CopilotでGA。Pro+、Max、Business、Enterprise向けに段階展開。Business/Enterpriseは管理者による明示的有効化が必要。標準ではAnthropicの安全性分類のためプロンプトと出力が保持される。",
+      "enterprise_implication": "モデル選択の性能だけでなくデータ保持条件を承認プロセスに組み込む必要がある。対象企業には期限付きのZDR例外があるが、利用資格と将来条件を確認すべき。",
+      "use_cases": [
+        "大規模Pythonリポジトリの複数段階リファクタリング評価"
+      ],
+      "technical_implications": [
+        "機密コードでの利用前にモデルポリシーとデータ保持を審査",
+        "プロバイダー定価に基づく従量課金を評価"
+      ],
+      "sources": [
+        {
+          "title": "Claude Fable 5.2 in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-11-09-claude-fable-5-2-in-github-copilot/",
+          "published_at": "2026-11-09"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "fact": "GitHub公式ChangelogでGA、対象プラン、データ保持条件を確認",
+        "analysis": "企業審査・評価手順は提案"
+      }
+    },
+    {
+      "product": "GitHub Copilot",
+      "event": "Gemini 4 CarbonがGA",
+      "event_type": "ga_model",
+      "summary": "11月10日、Gemini 4 CarbonがGitHub CopilotでGA。Pro+、Max、Business、Enterpriseに段階展開。Business/Enterpriseでは管理者のモデルポリシーに従い、新モデルが既定で有効になる場合がある。",
+      "enterprise_implication": "新モデルの自動有効化設定を監査し、品質・料金・コード取り扱いを評価する必要がある。",
+      "use_cases": [
+        "セキュリティ修正PRの生成と既存モデルとの比較"
+      ],
+      "technical_implications": [
+        "Copilot model policyの既定値を確認",
+        "実タスクの成功率と従量料金を比較"
+      ],
+      "sources": [
+        {
+          "title": "Gemini 4 Carbon in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot/",
+          "published_at": "2026-11-10"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "fact": "GitHub公式ChangelogでGAと対象プラン・管理者設定を確認",
+        "analysis": "社内導入時の比較・統制は提案"
+      }
+    }
+  ]
+}
