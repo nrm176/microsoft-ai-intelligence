@@ -1,0 +1,74 @@
+{
+  "id": "microsoft-ai-brief-2026-11-12",
+  "date": "2026-11-12",
+  "coverage_window": {
+    "start": "2026-11-10",
+    "end": "2026-11-12"
+  },
+  "generated_at": "2026-11-12T08:58:58+09:00",
+  "language": "ja",
+  "source_count": 2,
+  "products": [
+    "GitHub Copilot Enterprise",
+    "GitHub Copilot CLI",
+    "Microsoft C++ Language Server"
+  ],
+  "topics": [
+    "enterprise license management",
+    "GitHub Apps",
+    "agentic coding",
+    "MSBuild"
+  ],
+  "developments": [
+    {
+      "product": "GitHub Copilot Enterprise",
+      "event": "Enterprise GitHub AppsによるCopilot seat管理APIへのアクセス",
+      "event_type": "API改善",
+      "summary": "【事実】2026年11月10日、Enterprise GitHub Appsが企業単位のCopilot seat management APIsを呼び出し、ユーザー・enterprise teamsへのseat割り当てを管理できるようになった。新しいfine-grained権限はEnterprise Copilot license management。",
+      "enterprise_implication": "【分析】個人PATを用いる管理スクリプトよりも、アプリ主体の権限分離・監査・自動化を設計しやすくなる。",
+      "use_cases": [
+        "【提案】入退社・異動に連動したCopilotライセンスの付与・回収",
+        "【提案】チーム単位のseat棚卸しと未使用ライセンスの最適化"
+      ],
+      "technical_implications": [
+        "【提案】Enterprise GitHub Appに必要最小限のEnterprise Copilot license management権限を付与",
+        "【提案】変更操作に監査ログ、再試行時の冪等性、承認フローを追加"
+      ],
+      "sources": [
+        {
+          "title": "GitHub App support for Enterprise Copilot seat management",
+          "url": "https://github.blog/changelog/2026-11-10-github-app-support-for-enterprise-copilot-seat-management/",
+          "published": "2026-11-10",
+          "type": "primary"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    },
+    {
+      "product": "GitHub Copilot CLI / Microsoft C++ Language Server",
+      "event": "MSBuild向けcompile_commands.jsonの自動生成",
+      "event_type": "開発ツール改善",
+      "summary": "【事実】2026年11月10日、Microsoft C++ Language ServerがMSBuildのcompile commands extractorを内蔵し、Copilot CLIでプロジェクトを開く際に自動実行するようになった。",
+      "enterprise_implication": "【分析】C++レガシーシステムの解析・保守でエージェントの初期設定負担と不要なツール探索を削減できる可能性がある。",
+      "use_cases": [
+        "【提案】MSBuildベースのC++業務アプリのシンボル参照・影響分析"
+      ],
+      "technical_implications": [
+        "【事実】CMakeや独自ビルドシステムは別途compile_commands.jsonまたはskillで設定する",
+        "【提案】プラグイン導入後、定義ジャンプ精度・セットアップ時間・トークン数を比較"
+      ],
+      "sources": [
+        {
+          "title": "C++ language server now auto-configures MSBuild builds",
+          "url": "https://github.blog/changelog/2026-11-10-c-language-server-now-auto-configures-msbuild-builds/",
+          "published": "2026-11-10",
+          "type": "primary"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    }
+  ],
+  "monitoring_note": "Work IQ、Foundry IQ、Microsoft 365 Copilot、Copilot Studio、Microsoft Foundryについて、今回の調査範囲では前回以降の独立した重要更新を確認できなかった。"
+}
