@@ -1,0 +1,76 @@
+{
+  "id": "microsoft-ai-brief-2026-11-13",
+  "date": "2026-11-13",
+  "coverage_window": {
+    "start": "2026-11-12",
+    "end": "2026-11-13"
+  },
+  "generated_at": "2026-11-13T08:04:04+09:00",
+  "language": "ja",
+  "source_count": 2,
+  "new_material_announcements_in_window": 0,
+  "editorial_note": "今回の対象期間に新たな重大発表は確認できず、過去のbriefで未収録の重要情報と直近の廃止期限を補足。",
+  "developments": [
+    {
+      "product": "Microsoft Foundry Agent Service",
+      "event": "Microsoft Copilot harnessのPublic PreviewとHosted Agents長時間実行耐障害性GA",
+      "event_type": "preview_and_ga",
+      "announcement_date": "2026-10-28",
+      "is_new_in_window": false,
+      "summary": "Microsoft Copilot harnessがPublic Preview。Skills、MCPツール、サブエージェント、宣言的なエージェント定義をマネージド実行環境で利用できる。Hosted Agentsの長時間実行耐障害性もGA。",
+      "enterprise_implication": "自前のagent loopやsandboxの実装負担を減らし、長時間処理をAzureで運用できる。ただし復旧時の重複更新防止はアプリケーション側の責任。",
+      "use_cases": [
+        "社内の案件資料を収集・分析して根拠付き報告書を作成",
+        "長時間の帳票処理をチェックポイントから再開"
+      ],
+      "technical_implications": [
+        "azure.yamlでharness.typeにmicrosoft_copilot_previewを設定",
+        "実行中断後は元の入力から再実行されるため、進捗永続化・冪等性・重複防止が必要",
+        "2026-12-01からsandbox computeとmemoryに従量課金。公表価格は0.0994 USD/vCPU時、0.0118 USD/GiB時（地域・契約差あり）"
+      ],
+      "sources": [
+        {
+          "title": "Introducing the Microsoft Copilot harness in Foundry Agent Service",
+          "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/",
+          "published_at": "2026-10-28"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "Microsoft公式ブログで確認",
+        "analysis": "運用上のユースケースと導入優先度は分析"
+      }
+    },
+    {
+      "product": "GitHub Copilot",
+      "event": "2026年11月16日の一部モデル廃止に向けた移行期限",
+      "event_type": "scheduled_deprecation",
+      "announcement_date": "2026-10-15",
+      "is_new_in_window": false,
+      "summary": "Claude Opus 4.8、Claude Opus 5、GPT-5.6 Terraが2026年11月16日に廃止予定。ただし個人の年間契約者向けClaude Opus 4.8は例外。",
+      "enterprise_implication": "モデル名を固定したIDE設定や自動化が影響を受ける可能性がある。管理者が代替モデルを無効化している場合は事前の有効化が必要。",
+      "use_cases": [
+        "Copilot CLIやIDEで利用するモデルの棚卸し",
+        "代替モデルによる回帰テストと企業ポリシー確認"
+      ],
+      "technical_implications": [
+        "Claude Opus 5.5、GPT-6.1 Sol、GPT-6 Lunaなど推奨代替へ変更",
+        "既定モデル自動有効化を無効にしている組織はmodel policiesを確認"
+      ],
+      "sources": [
+        {
+          "title": "Upcoming deprecation of selected GitHub Copilot models in mid-November",
+          "url": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-November/",
+          "published_at": "2026-10-15"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "GitHub公式Changelogで確認",
+        "analysis": "モデル固定設定の棚卸しと回帰テストは推奨策"
+      }
+    }
+  ]
+}
