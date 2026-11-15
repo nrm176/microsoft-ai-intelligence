@@ -1,0 +1,165 @@
+{
+  "id": "microsoft-ai-brief-2026-11-16",
+  "date": "2026-11-16",
+  "coverage_window": {
+    "start": "2026-11-11",
+    "end": "2026-11-16"
+  },
+  "generated_at": "2026-11-16T08:11:10+09:00",
+  "language": "ja",
+  "products": [
+    "Azure Content Understanding",
+    "GitHub Copilot",
+    "GitHub Copilot app",
+    "GitHub Code Security"
+  ],
+  "topics": [
+    "model_support",
+    "ga",
+    "deprecation",
+    "public_preview"
+  ],
+  "source_count": 5,
+  "developments": [
+    {
+      "product": "Azure Content Understanding",
+      "event": "GPT-6.1・GPT-6・GPT-5.6対応",
+      "event_type": "model_support",
+      "published": "2026-11-11",
+      "summary": "文書・テキスト・音声・動画のモデル選択肢が拡大。Microsoftは文書抽出でGPT-6.1 Solを初期候補として推奨。",
+      "enterprise_implication": "帳票抽出の精度と費用を用途別に最適化できる。",
+      "use_cases": [
+        "工事見積書の数量・金額抽出でSol、Luna、Astraを比較"
+      ],
+      "technical_implications": [
+        "modelDeploymentsで同一analyzerのデプロイを変更して比較",
+        "リージョン・総費用・ラベル付き例の効果を確認"
+      ],
+      "sources": [
+        {
+          "url": "https://devblogs.microsoft.com/foundry/content-understanding-adds-gpt-5-6-gpt-6-and-gpt-6-1-choose-the-right-model-for-your-workload/",
+          "published": "2026-11-11",
+          "type": "一次情報"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja",
+      "provenance": {
+        "source_supported": "発表日・提供状態・機能・制約",
+        "model_analysis": "企業への示唆・ユースケース・推奨対応"
+      }
+    },
+    {
+      "product": "GitHub Copilot",
+      "event": "Gemini 4 Hydrogen GA",
+      "event_type": "ga",
+      "published": "2026-11-13",
+      "summary": "高速なエージェント型コーディング向けモデルがIDE・CLI・SDK等に段階展開。プロバイダー定価基準の従量課金。",
+      "enterprise_implication": "小規模開発タスクの速度・費用最適化候補。",
+      "use_cases": [
+        "Pythonテスト生成のモデル比較"
+      ],
+      "technical_implications": [
+        "Business/Enterpriseモデルポリシーを確認",
+        "実際の従量料金を測定"
+      ],
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot/",
+          "published": "2026-11-13",
+          "type": "一次情報"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja",
+      "provenance": {
+        "source_supported": "発表日・提供状態・機能・制約",
+        "model_analysis": "企業への示唆・ユースケース・推奨対応"
+      }
+    },
+    {
+      "product": "GitHub Copilot",
+      "event": "6モデルの12月14日廃止予告",
+      "event_type": "deprecation",
+      "published": "2026-11-13",
+      "summary": "Claude Fable 5、Claude Haiku 4.5、Gemini 3.8 Flash、Gemini 4 Argon、Grok 4.6、Kimi K3を廃止予定。一部個人年間契約は例外。",
+      "enterprise_implication": "モデル固定ワークフローに影響する。",
+      "use_cases": [
+        "CLI・IDE・SDKの固定モデル指定を棚卸し"
+      ],
+      "technical_implications": [
+        "代替モデルを検証",
+        "企業ポリシーを確認"
+      ],
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december/",
+          "published": "2026-11-13",
+          "type": "一次情報"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja",
+      "provenance": {
+        "source_supported": "発表日・提供状態・機能・制約",
+        "model_analysis": "企業への示唆・ユースケース・推奨対応"
+      }
+    },
+    {
+      "product": "GitHub Copilot app",
+      "event": "GHES対応GA",
+      "event_type": "ga",
+      "published": "2026-11-13",
+      "summary": "Copilot app 1.2.0以降でGitHub Enterprise Serverのリポジトリ・Issue・PRに対応。GHESのクラウドセッションは非対応。",
+      "enterprise_implication": "オンプレミスGitHub利用企業のAI開発支援が拡大。",
+      "use_cases": [
+        "GHES上のIssue調査とPRレビュー"
+      ],
+      "technical_implications": [
+        "GitHub.com/GHE.comにログイン後GHESを追加",
+        "クラウドセッション制限を考慮"
+      ],
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app/",
+          "published": "2026-11-13",
+          "type": "一次情報"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja",
+      "provenance": {
+        "source_supported": "発表日・提供状態・機能・制約",
+        "model_analysis": "企業への示唆・ユースケース・推奨対応"
+      }
+    },
+    {
+      "product": "GitHub Code Security",
+      "event": "AI Scan設定REST API",
+      "event_type": "public_preview",
+      "published": "2026-11-13",
+      "summary": "組織・リポジトリのAI Scan設定にrepository_scanを追加。設定変更ではスキャンを起動せず、実行にはAI creditsを消費。",
+      "enterprise_implication": "AIセキュリティ検査をコードで統制可能。",
+      "use_cases": [
+        "社内リポジトリのAI Scan設定一括管理"
+      ],
+      "technical_implications": [
+        "GET/PATCH /orgs/{org}/code-scanning/ai-scan等を利用",
+        "企業ポリシー禁止時422・GHES非対応"
+      ],
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-11-13-manage-ai-scan-for-repositories-using-the-rest-api/",
+          "published": "2026-11-13",
+          "type": "一次情報"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja",
+      "provenance": {
+        "source_supported": "発表日・提供状態・機能・制約",
+        "model_analysis": "企業への示唆・ユースケース・推奨対応"
+      }
+    }
+  ]
+}
