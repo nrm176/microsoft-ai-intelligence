@@ -1,0 +1,273 @@
+{
+  "id": "microsoft-ai-brief-2026-11-18",
+  "date": "2026-11-18",
+  "coverage_window": "2026-11-17〜2026-11-18 08:37 JST",
+  "generated_at": "2026-11-18T08:37:26+09:00",
+  "language": "ja",
+  "source_count": 8,
+  "products": [
+    "Foundry IQ",
+    "Work IQ",
+    "Microsoft 365 Copilot Cowork",
+    "Azure AI Gateway",
+    "Microsoft Agent 365",
+    "Azure Functions / Durable Task Scheduler",
+    "Microsoft Foundry / Azure Monitor"
+  ],
+  "topics": [
+    "Ignite 2026",
+    "Work IQ",
+    "Foundry IQ",
+    "Agentic AI",
+    "Enterprise Governance"
+  ],
+  "developments": [
+    {
+      "product": "Foundry IQ",
+      "event": "Knowledge graphs、SharePoint ACL、Microsoft Retriever 1、Serverless",
+      "event_type": "Preview/GA/GA予定",
+      "summary": "Knowledge graphsとMicrosoft Retriever 1がPublic Preview。SharePoint権限を維持するknowledge sourceはGA。Serverlessは2026年12月GA予定。",
+      "enterprise_implication": "RAGを文書単位の検索から出典付きの関係検索へ拡張できる。",
+      "use_cases": [
+        "契約書・案件・取引先間の関係追跡",
+        "SharePoint権限に応じた社内検索"
+      ],
+      "technical_implications": [
+        "Ontologyまたは既存グラフを使いGQL/自然言語で照会",
+        "Retriever 1は既存indexで利用でき再index不要",
+        "Serverlessの本番SLAは12月GA予定で現時点のGAと混同しない"
+      ],
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/foundry-iq-introducing-knowledge-graphs-engineered-for-agents/4572683",
+          "type": "一次情報"
+        },
+        {
+          "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/microsoft-retriever-1-brings-sub-second-agentic-retrieval-to-foundry-iq/4573431",
+          "type": "一次情報"
+        }
+      ],
+      "confidence": "高（Microsoft一次情報。ただしPreviewの可用性・価格・リージョンは個別確認）",
+      "language": "ja",
+      "provenance": {
+        "source_supported": [
+          "event",
+          "event_type",
+          "summary"
+        ],
+        "model_analysis": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    },
+    {
+      "product": "Work IQ",
+      "event": "Listen、Business Applications、Memory、Teams real-time transcripts",
+      "event_type": "Ignite発表/一部Preview",
+      "summary": "イベント駆動のListen、Dynamics 365/Power PlatformとMicrosoft 365を横断する業務コンテキスト、会議中の文字起こし参照、セッションをまたぐMemoryを発表。ERP連携はPreview。",
+      "enterprise_implication": "CRM/ERPの構造化データとメール・会議の非構造化情報を同一エージェントに接続する方向性。",
+      "use_cases": [
+        "商談・顧客会議と案件DBを照合した営業支援",
+        "イベントを起点にした承認・追跡"
+      ],
+      "technical_implications": [
+        "権限と監査境界を検証",
+        "Listenのイベント再配信時の冪等性を設計",
+        "既報のSharePoint 60超操作は新規発表として重複計上しない"
+      ],
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/microsoft_365blog/whats-new-in-work-iq-at-ignite-2026-agents-that-get-work-done/4572219",
+          "type": "一次情報"
+        }
+      ],
+      "confidence": "高（Microsoft一次情報。ただしPreviewの可用性・価格・リージョンは個別確認）",
+      "language": "ja",
+      "provenance": {
+        "source_supported": [
+          "event",
+          "event_type",
+          "summary"
+        ],
+        "model_analysis": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    },
+    {
+      "product": "Microsoft 365 Copilot Cowork",
+      "event": "Autoのモデル選択・subagents、プロアクティブ提案",
+      "event_type": "Frontier Preview/一部GA",
+      "summary": "Microsoft-Decision-1.1を用いたAutoが工程別にモデル・推論量を選び、subagentsを並行実行。Work IQによる作業提案もFrontierで展開。Brand Kitや一部プラグインはGA。",
+      "enterprise_implication": "複雑な業務を単一モデルに固定せず、成果物ベースで委譲する構成へ進む。",
+      "use_cases": [
+        "営業レビュー資料とフォローアップ計画の同時作成",
+        "経営会議向け複数資料の差分分析"
+      ],
+      "technical_implications": [
+        "FrontierとGAを区別して導入",
+        "モデル選択と処理費用の実測を行う"
+      ],
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/microsoft-copilot-blog/whats-new-in-copilot-cowork-at-ignite-2026/4572242",
+          "type": "一次情報"
+        }
+      ],
+      "confidence": "高（Microsoft一次情報。ただしPreviewの可用性・価格・リージョンは個別確認）",
+      "language": "ja",
+      "provenance": {
+        "source_supported": [
+          "event",
+          "event_type",
+          "summary"
+        ],
+        "model_analysis": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    },
+    {
+      "product": "Azure AI Gateway",
+      "event": "独立したマネージドAI GatewayのGA",
+      "event_type": "GA",
+      "summary": "従来Azure API ManagementのAI Gateway tierとしてPreviewだった機能が、モデル・MCPツールへのアクセス、ポリシー、費用、利用状況を統合する独立サービスとしてGA。",
+      "enterprise_implication": "複数プロバイダーのモデル・ツール接続に統一制御点を置ける。",
+      "use_cases": [
+        "社内アプリ群のモデルAPI利用量とアクセス統制"
+      ],
+      "technical_implications": [
+        "既存Functions直結とGateway経由の費用・遅延を比較",
+        "Entra認証、認可、MCP制限を確認"
+      ],
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/IntegrationsonAzureBlog/azure-ai-gateway-is-now-generally-available-ship-faster-stay-in-control/4572644",
+          "type": "一次情報"
+        }
+      ],
+      "confidence": "高（Microsoft一次情報。ただしPreviewの可用性・価格・リージョンは個別確認）",
+      "language": "ja",
+      "provenance": {
+        "source_supported": [
+          "event",
+          "event_type",
+          "summary"
+        ],
+        "model_analysis": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    },
+    {
+      "product": "Microsoft Agent 365",
+      "event": "Business Analyticsとライセンス範囲変更",
+      "event_type": "Frontier Preview/ライセンスGA",
+      "summary": "Agent 365 Business AnalyticsはFrontier Preview。対象Microsoft 365契約に含まれる基本エージェント可視化のライセンス変更がGA。高度な非Microsoftエージェント管理・統制はAgent 365またはME7が必要。",
+      "enterprise_implication": "全エージェントの費用対効果と管理責任を一元化しやすいが、契約別機能差の確認が必要。",
+      "use_cases": [
+        "エージェント別の所有者、費用、利用率を棚卸し"
+      ],
+      "technical_implications": [
+        "対象M365契約とpremium境界を確認",
+        "エージェントの登録・所有者・ライフサイクルを定義"
+      ],
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/agent-365-blog/whats-new-in-microsoft-agent-365-ignite-2026/4571753",
+          "type": "一次情報"
+        }
+      ],
+      "confidence": "高（Microsoft一次情報。ただしPreviewの可用性・価格・リージョンは個別確認）",
+      "language": "ja",
+      "provenance": {
+        "source_supported": [
+          "event",
+          "event_type",
+          "summary"
+        ],
+        "model_analysis": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    },
+    {
+      "product": "Azure Functions / Durable Task Scheduler",
+      "event": "Durable Agent Framework GA、LangGraph連携Preview、private endpoint/CMK GA",
+      "event_type": "GA/Preview",
+      "summary": "Microsoft Agent Framework向けDurable ExtensionがGA。LangGraphのDurable Task Scheduler連携はPreview。DTSのprivate endpointsとcustomer-managed keysがGA。",
+      "enterprise_implication": "Functions中心の社内エージェントで長時間実行と復旧、ネットワーク・暗号鍵統制を実現しやすい。",
+      "use_cases": [
+        "長時間の帳票処理・照合・承認フロー"
+      ],
+      "technical_implications": [
+        "冪等なactivity、チェックポイント、再実行設計",
+        "Flex Consumptionとの適合性・料金を検証"
+      ],
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/appsonazureblog/whats-new-in-azure-functions-durable-task-scheduler-durable-agents-disaster-reco/4573351",
+          "type": "一次情報"
+        }
+      ],
+      "confidence": "高（Microsoft一次情報。ただしPreviewの可用性・価格・リージョンは個別確認）",
+      "language": "ja",
+      "provenance": {
+        "source_supported": [
+          "event",
+          "event_type",
+          "summary"
+        ],
+        "model_analysis": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    },
+    {
+      "product": "Microsoft Foundry / Azure Monitor",
+      "event": "外部エージェントの監視・評価GA、cross-agent debugging Preview",
+      "event_type": "GA/Preview",
+      "summary": "外部エージェントのobservabilityとevaluationがGA。cross-agent debuggingとAzure Monitor traces/Trace AnalyticsはPublic Preview。OpenTelemetryで実行・費用・品質を関連付ける。",
+      "enterprise_implication": "Foundry以外のフレームワークを含むエージェント運用の可観測性が改善。",
+      "use_cases": [
+        "Python FastAPIエージェントのトレース・品質評価・費用監視"
+      ],
+      "technical_implications": [
+        "Application Insightsへ互換トレースを送信しFoundryへ登録",
+        "プロンプト・応答ログの機密情報保護とRBACを確認"
+      ],
+      "sources": [
+        {
+          "url": "https://techcommunity.microsoft.com/blog/azureobservabilityblog/agent-observability-in-azure-monitor-at-ignite-2026/4573966",
+          "type": "一次情報"
+        }
+      ],
+      "confidence": "高（Microsoft一次情報。ただしPreviewの可用性・価格・リージョンは個別確認）",
+      "language": "ja",
+      "provenance": {
+        "source_supported": [
+          "event",
+          "event_type",
+          "summary"
+        ],
+        "model_analysis": [
+          "enterprise_implication",
+          "use_cases",
+          "technical_implications"
+        ]
+      }
+    }
+  ]
+}
