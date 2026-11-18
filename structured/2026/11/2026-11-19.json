@@ -1,0 +1,124 @@
+{
+  "id": "microsoft-ai-brief-2026-11-19",
+  "date": "2026-11-19",
+  "coverage_window": {
+    "start": "2026-11-18",
+    "end": "2026-11-19T08:24:32+09:00",
+    "timezone": "Asia/Tokyo"
+  },
+  "language": "ja",
+  "generated_at": "2026-11-19T08:24:32+09:00",
+  "source_count": 4,
+  "developments": [
+    {
+      "product": "Microsoft Foundry Toolboxes",
+      "event": "共有ToolboxとMCPツール管理",
+      "event_type": "Ignite発表",
+      "summary": "ツール、Skills、エージェントをFoundryでバージョン管理し、単一MCPエンドポイントから再利用できる。下流認証を集約し、tool searchで必要なツールを動的発見できる。",
+      "enterprise_implication": "【分析】各アプリで重複するMCP接続と認証設定を減らし、ツールの標準化・監査を進めやすい。",
+      "use_cases": [
+        "【提案】案件検索、顧客照会、見積チェックを共通Toolboxとして複数の社内エージェントに提供"
+      ],
+      "technical_implications": [
+        "【提案】Toolboxのバージョン固定、認可境界、変更時の回帰テストを定義",
+        "プレビュー機能のtool policiesは本番採用前に検証"
+      ],
+      "sources": [
+        {
+          "title": "Build once, reuse across your agent fleet",
+          "url": "https://devblogs.microsoft.com/foundry/build-once-reuse-across-your-agent-fleet-tools-and-toolboxes-in-foundry/"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    },
+    {
+      "product": "Foundry Agent Service Browser Automation",
+      "event": "Browser Automation ToolがGA",
+      "event_type": "GA・Preview",
+      "summary": "Azure Playwright Workspacesを使うBrowser Automation ToolがGA。MCP操作のバッチ化、Live View、Take control、セッション記録はGA。VNet injection、独自proxy、秘密情報管理などはPreview。",
+      "enterprise_implication": "【分析】APIのない既存業務Webシステムの自動化が現実的になるが、画面変更と権限逸脱への対策が必要。",
+      "use_cases": [
+        "【提案】経費ポータルへの請求書転記を人間の確認付きで自動化"
+      ],
+      "technical_implications": [
+        "【提案】認証時はTake controlを利用し、操作ログを保存",
+        "VNet injectionはPreviewであり本番接続の要件確認が必要"
+      ],
+      "sources": [
+        {
+          "title": "Browser Automation Tool in Microsoft Foundry: Ignite’26 Announcements",
+          "url": "https://devblogs.microsoft.com/foundry/browser-automation-tool-ignite/"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    },
+    {
+      "product": "Foundry Hosted Agents",
+      "event": "ネットワーク制御GAとMemory snapshots Preview",
+      "event_type": "GA・Preview",
+      "summary": "Shared subnet IPsとnetwork egress controlsがGA。Memory snapshots、Private CA trust、Azure Policy governanceはPublic Preview。顧客所有AKSへのデプロイは12月初旬Preview予定であり現時点のGAではない。",
+      "enterprise_implication": "【分析】社内APIを呼ぶエージェントに対して送信先制限やネットワーク設計を適用しやすくなる。",
+      "use_cases": [
+        "【提案】Azure Functionsと社内APIを呼ぶ見積照合エージェントを送信先allowlist付きで実行"
+      ],
+      "technical_implications": [
+        "【提案】まず監査モードで通信先を把握してからegress制限",
+        "Memory snapshotsは永続状態の代替ではない。進捗は外部DBへ保存"
+      ],
+      "sources": [
+        {
+          "title": "What's new in Foundry Agent Service at Ignite 2026",
+          "url": "https://devblogs.microsoft.com/foundry/whats-new-in-foundry-agent-service-at-ignite-2026/"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    },
+    {
+      "product": "Foundry Dev Pack",
+      "event": "開発ツール統合パックGA",
+      "event_type": "GA",
+      "summary": "Foundry CLI azd ai、Microsoft Foundry Skill、VS Code Toolkit、GitHub Copilot appプラグインをまとめたDev PackがGA。Claude Codeなど対応coding agentからSkillを利用できる。",
+      "enterprise_implication": "【分析】異なるIDE・コーディングエージェントを使う開発チームでも同じプロジェクト定義とデプロイ手順を共有しやすい。",
+      "use_cases": [
+        "【提案】Python/ReactチームのFoundryエージェント開発をazure.yamlとGitHub Actionsで標準化"
+      ],
+      "technical_implications": [
+        "macOS: brew install --cask microsoft/foundry/devpack && foundry-devpack install",
+        "azd aiとazure.yamlをソース管理し、Dev/UAT/Prodの設定を分離"
+      ],
+      "sources": [
+        {
+          "title": "The Foundry Dev Pack is here",
+          "url": "https://devblogs.microsoft.com/foundry/the-foundry-dev-pack-is-here-build-foundry-agents-your-way/"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    },
+    {
+      "product": "Foundry Agent Service Voice & Operations",
+      "event": "Voice agents GA、Insights GA、改善機能Preview",
+      "event_type": "GA・Preview",
+      "summary": "Voice agentsがGA。InsightsもGAとなり、LangGraph、LangChain、CrewAIのエージェントも対象。Trace annotations、Agent Optimizer連携、Skill optimization、Cost optimizationはPreview。",
+      "enterprise_implication": "【分析】運用時の失敗事例を評価データと結びつけ、エージェントを継続改善する基盤が整う。",
+      "use_cases": [
+        "【提案】社内ヘルプデスク音声エージェントを運用し、失敗会話を評価データに変換"
+      ],
+      "technical_implications": [
+        "【提案】トレースの個人情報マスキング、評価セットの版管理、変更前後の品質比較を必須化"
+      ],
+      "sources": [
+        {
+          "title": "What's new in Foundry Agent Service at Ignite 2026",
+          "url": "https://devblogs.microsoft.com/foundry/whats-new-in-foundry-agent-service-at-ignite-2026/"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    }
+  ],
+  "notes": "一次情報に基づく事実と【分析】【提案】を明確に分離。前日briefとの重複は除外。"
+}
