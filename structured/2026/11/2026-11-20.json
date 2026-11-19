@@ -1,0 +1,103 @@
+{
+  "id": "microsoft-ai-brief-2026-11-20",
+  "date": "2026-11-20",
+  "coverage_window": {
+    "start": "2026-11-19T00:00:00+09:00",
+    "end": "2026-11-20T08:49:54+09:00"
+  },
+  "generated_at": "2026-11-20T08:49:54+09:00",
+  "language": "ja",
+  "source_count": 3,
+  "products": [
+    "GitHub Copilot",
+    "MCP Connectors",
+    "Team Customizations",
+    "Gemini 4 Neon"
+  ],
+  "topics": [
+    "agentic AI",
+    "MCP",
+    "enterprise governance",
+    "GA",
+    "Public Preview",
+    "model selection"
+  ],
+  "developments": [
+    {
+      "product": "GitHub Copilot / MCP Connectors",
+      "event": "Supabaseなど8サービスのGitHub検証済みMCP Connector追加",
+      "event_type": "Public Preview",
+      "summary": "2026年11月18日、Supabase、Box、Buildkite、Calendly、ClickUp、Mixpanel、Webflow、Wixへの接続がPublic Previewで追加された。Copilot app、CLI、VS Codeなどから設定できる。",
+      "enterprise_implication": "業務データと開発作業を同じエージェントセッションで扱えるが、MCPの許可リストと接続先権限の統制が重要になる。",
+      "use_cases": [
+        "Supabaseのスキーマを参照してからDB migration案を生成",
+        "Buildkiteの失敗ログを調査して修正PRを作成"
+      ],
+      "technical_implications": [
+        "Business/EnterpriseではEditor preview featuresポリシーの有効化が必要",
+        "MCP allowlistを個別列挙する企業は新しいConnectorの追加許可が必要",
+        "DB更新操作は最小権限と人間の承認を推奨"
+      ],
+      "sources": [
+        {
+          "title": "Connect Supabase, Box, Calendly, and more to Copilot",
+          "url": "https://github.blog/changelog/2026-11-18-connect-supabase-box-calendly-and-more-to-copilot/",
+          "published_at": "2026-11-18"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    },
+    {
+      "product": "GitHub Copilot / Team Customizations",
+      "event": "チーム単位のAgent Plugins既定設定がGA",
+      "event_type": "GA",
+      "summary": "2026年11月18日、Copilot Business/Enterpriseで組織内のチームごとに承認済みAgent Pluginsを既定設定できるようになった。VS Code、Copilot app、CLIに適用される。",
+      "enterprise_implication": "開発チーム別の共通ツールや標準を配布しやすくなる。企業・組織ポリシーはチーム設定より優先される。",
+      "use_cases": [
+        "APIチームにテスト・API設計Pluginを配布",
+        "DBチームにスキーマ検査Pluginを配布"
+      ],
+      "technical_implications": [
+        "チームの直接メンバーに適用され、子チームには継承されない",
+        "許可される範囲ではメンバーが既定Pluginを無効化できる",
+        "標準ルールはリポジトリのAGENTS.md等と重複・矛盾しないよう管理"
+      ],
+      "sources": [
+        {
+          "title": "Customize GitHub Copilot for your team",
+          "url": "https://github.blog/changelog/2026-11-18-customize-github-copilot-for-your-team/",
+          "published_at": "2026-11-18"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    },
+    {
+      "product": "GitHub Copilot / Gemini 4 Neon",
+      "event": "Gemini 4 NeonがGitHub CopilotでGA",
+      "event_type": "GA",
+      "summary": "2026年11月18日、Gemini 4 NeonがCopilot Pro+、Max、Business、Enterprise向けにGAとなった。Agentic codingと複数ステップのツール利用を対象とし、段階展開される。",
+      "enterprise_implication": "モデル選択肢が増え、タスク別の品質・費用比較が可能になる。性能優位の主張は提供者によるもので、独立検証ではない。",
+      "use_cases": [
+        "Python/FastAPIの修正とpytest生成で既存モデルと比較",
+        "複数ファイルの変更における不要な差分の発生率を評価"
+      ],
+      "technical_implications": [
+        "プロバイダー定価に基づく従量課金",
+        "Business/Enterpriseのモデルポリシーを確認",
+        "同一タスクでテスト合格率・費用・レイテンシ・不要な変更件数を計測"
+      ],
+      "sources": [
+        {
+          "title": "Gemini 4 Neon in GitHub Copilot",
+          "url": "https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot/",
+          "published_at": "2026-11-18"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    }
+  ],
+  "notes": "11月18日発表で前回briefに未収録の更新を収録。事実はsummary、分析・提案はenterprise_implication/use_cases/technical_implicationsに分離。"
+}
