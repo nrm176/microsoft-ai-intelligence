@@ -1,0 +1,113 @@
+{
+  "id": "microsoft-ai-brief-2026-11-23",
+  "date": "2026-11-23",
+  "coverage_window": {
+    "start": "2026-11-20T00:00:00+09:00",
+    "end": "2026-11-23T08:23:25+09:00"
+  },
+  "generated_at": "2026-11-23T08:23:25+09:00",
+  "language": "ja",
+  "source_count": 2,
+  "products": [
+    "Microsoft Foundry Managed Compute",
+    "Microsoft Foundry Agent Service"
+  ],
+  "topics": [
+    "open-model-serving",
+    "GA",
+    "LoRA",
+    "BYOW",
+    "private-networking"
+  ],
+  "developments": [
+    {
+      "product": "Microsoft Foundry Managed Compute",
+      "event": "オープンモデル専用GPU推論基盤がGA",
+      "event_type": "GA",
+      "summary": "2026年11月20日、Managed ComputeがGA。150超のオープンモデルを専用GPU上で提供し、Global・米国/EU Data Zone、NVIDIA A100/H100/H200とAMD MI300Xの構成を案内。",
+      "enterprise_implication": "【分析】自社でGPUサーバーやKubernetesを運用せずにオープンモデルを利用できる。ただしGPU時間課金であり低負荷用途では従量APIの方が有利な可能性。",
+      "use_cases": [
+        "【提案】日本語社内文書RAGの埋め込み・リランキング・推論を専用環境で比較",
+        "【提案】帳票の抽出・分類モデルを専用GPUに集約"
+      ],
+      "technical_implications": [
+        "【事実】Deployment templateがGPU・ランタイム・コンテキスト長を規定。GPUインスタンス単位の時間課金",
+        "【事実】prompt_cache_keyによるルーティングの親和性ヒント、cached_tokensの計測に対応する構成あり",
+        "【提案】同一データセットで費用/100万token、TTFT、同時処理、品質をAPI課金と比較"
+      ],
+      "sources": [
+        {
+          "title": "Serve open models in production with Foundry Managed Compute",
+          "url": "https://devblogs.microsoft.com/foundry/managed-compute-ga/",
+          "published_at": "2026-11-20",
+          "type": "primary"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "Microsoft公式ブログ",
+        "analysis": "本briefの評価・提案"
+      }
+    },
+    {
+      "product": "Microsoft Foundry Managed Compute",
+      "event": "LoRA adapterとBring Your Own WeightsをPreviewで拡張",
+      "event_type": "preview",
+      "summary": "2026年11月20日、Foundry post-trainingで生成したLoRA adapterの配備と、SafeTensorsの独自フルウェイト持ち込みを限定Public Previewとして案内。",
+      "enterprise_implication": "【分析】基盤モデルを共有しつつ業務特化adapterを切り替える設計が可能になるが、対象モデル・テンプレートと利用資格に制約がある。",
+      "use_cases": [
+        "【提案】部門ごとの帳票分類・専門用語処理向けLoRA adapterを検証"
+      ],
+      "technical_implications": [
+        "【事実】LoRAは対応するbase-model versionとLoRA-enabled templateが必要",
+        "【事実】BYOWは限定Public Previewで互換性と早期アクセス申請が必要",
+        "【提案】adapter版管理・再現性・権限分離を評価"
+      ],
+      "sources": [
+        {
+          "title": "Serve open models in production with Foundry Managed Compute",
+          "url": "https://devblogs.microsoft.com/foundry/managed-compute-ga/",
+          "published_at": "2026-11-20",
+          "type": "primary"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "Microsoft公式ブログ",
+        "analysis": "本briefの評価・提案"
+      }
+    },
+    {
+      "product": "Microsoft Foundry Agent Service",
+      "event": "BYO VNet構成の本番トラブルシューティング指針",
+      "event_type": "technical_guidance",
+      "summary": "2026年11月21日、Hosted AgentsのBYO VNet構成に関する5つの診断ポイントを公開。委任subnet、Private DNS、Entra認証経路、VNet peering、削除後のsubnet占有を解説。新規GAではない。",
+      "enterprise_implication": "【分析】閉域網でのAgent導入時のネットワーク不具合を設計段階で予防できる。",
+      "use_cases": [
+        "【提案】Private Endpoint接続のCosmos DB・Storage・Azure AI Searchを使う社内Agentの接続診断"
+      ],
+      "technical_implications": [
+        "【事実】network injectionはFoundry account作成時に設定する必要があり、既存accountに後付け不可",
+        "【事実】TLS inspection時、Entraサインイン関連FQDNを復号対象から除外する必要がある",
+        "【事実】Private DNS zoneはagent subnet側VNetから解決可能にする",
+        "【提案】Dev/UAT/Prodごとにsubnet・DNS・通信許可をIaCで検証"
+      ],
+      "sources": [
+        {
+          "title": "Hosted agents in your own virtual network: five checks when the Agents page times out",
+          "url": "https://devblogs.microsoft.com/foundry/hosted-agents-private-network-setup/",
+          "published_at": "2026-11-21",
+          "type": "primary"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "Microsoft公式技術解説",
+        "analysis": "本briefの評価・提案"
+      }
+    }
+  ]
+}
