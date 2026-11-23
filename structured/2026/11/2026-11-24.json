@@ -1,0 +1,67 @@
+{
+  "id": "microsoft-ai-brief-2026-11-24",
+  "date": "2026-11-24",
+  "coverage_window": "2026-11-23〜2026-11-24 08:40 JST",
+  "generated_at": "2026-11-24T08:40:42+09:00",
+  "language": "ja",
+  "source_count": 2,
+  "developments": [
+    {
+      "product": "GitHub Enterprise Cloud / GitHub usage reports",
+      "event": "利用レポートにuser_id列を追加",
+      "event_type": "scheduled_schema_change",
+      "summary": "2026年12月1日から、username列を持つ詳細利用・AI利用・premium request利用レポートにuser_id列が直後に追加される。REST APIからのエクスポートも対象。集計レポートは対象外。",
+      "enterprise_implication": "列番号依存のETLが破損する可能性がある一方、ユーザー名変更や退職後の利用追跡・監査ログ突合が容易になる。",
+      "use_cases": [
+        "GitHub Copilot・AI利用量を社員IDと突合し部門別コスト配賦する",
+        "退職者やbotの利用を監査する"
+      ],
+      "technical_implications": [
+        "2026年12月1日までにCSV列を位置ではなくヘッダー名で読み取る",
+        "user_idを安定キーとして利用する",
+        "削除済みアカウントの行分割と端数丸め差をテストする"
+      ],
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-11-23-usage-reports-will-include-a-user-id-column-starting-december-1/",
+          "publisher": "GitHub",
+          "published_at": "2026-11-23"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "GitHub公式Changelog",
+        "analysis": "enterprise_implication、use_cases、technical_implicationsは分析・提案"
+      }
+    },
+    {
+      "product": "GitHub Issues / Copilot automations",
+      "event": "Issue statusesとrepository boardsのPublic Preview",
+      "event_type": "public_preview",
+      "summary": "2026年11月23日、Backlog、Todo、In progress、In reviewなどのIssue状態とリポジトリ内ボードをPublic Previewで提供。Agentへの割当でIn progressに変化し、GraphQL、REST、MCPから状態の取得・更新が可能。",
+      "enterprise_implication": "複数coding agentの作業状態をGitHub Issueに統一できる可能性がある。",
+      "use_cases": [
+        "Python API・React・DB変更を別Issueとしてagentへ委任しレビュー待ちを可視化する"
+      ],
+      "technical_implications": [
+        "Issue状態をオーケストレーションの補助情報として利用する",
+        "状態変更イベントをCopilot automationsのトリガーにする",
+        "Previewのため重要な承認状態は別途監査する"
+      ],
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-11-23-issue-statuses-and-repository-boards-are-in-public-preview/",
+          "publisher": "GitHub",
+          "published_at": "2026-11-23"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "GitHub公式Changelog",
+        "analysis": "enterprise_implication、use_cases、technical_implicationsは分析・提案"
+      }
+    }
+  ]
+}
