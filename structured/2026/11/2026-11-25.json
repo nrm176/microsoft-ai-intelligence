@@ -1,0 +1,105 @@
+{
+  "id": "microsoft-ai-brief-2026-11-25",
+  "date": "2026-11-25",
+  "coverage_window": "2026-11-24〜2026-11-25 08:06 JST（Ignite未収録補足を含む）",
+  "products": [
+    "Microsoft Foundry"
+  ],
+  "topics": [
+    "model-router",
+    "programmed-training",
+    "evaluation"
+  ],
+  "source_count": 3,
+  "language": "ja",
+  "generated_at": "2026-11-25T08:06:40+09:00",
+  "developments": [
+    {
+      "product": "Microsoft Foundry Model router",
+      "event": "Autoとルーティング制御の拡張",
+      "event_type": "preview_followup",
+      "summary": "11月18日発表、24日総括。model=\"auto\"で専用デプロイなしのルーティングが可能。Responses API対応とセッション親和性はPreview。モデル利用料にルーター料金が加わる。",
+      "enterprise_implication": "モデル選択の保守負担を減らせる可能性がある。",
+      "use_cases": [
+        "社内RAGの簡単な照会と複雑な分析を振り分ける"
+      ],
+      "technical_implications": [
+        "固定モデルと品質・費用・遅延を比較する",
+        "本番ではEntra IDを利用し、データ処理地域とモデル制限が必要なら専用デプロイを検討する"
+      ],
+      "sources": [
+        {
+          "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-ignite-2026/",
+          "published_at": "2026-11-24"
+        },
+        {
+          "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/model-router-in-foundry-models-start-in-one-line-route-intelligently-evaluate-co/4573543",
+          "published_at": "2026-11-18"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "Microsoft公式資料に基づくsummary",
+        "analysis": "enterprise_implication、use_cases、technical_implicationsは分析・提案（SDK要件等は公式資料に基づく）"
+      }
+    },
+    {
+      "product": "Microsoft Foundry Programmed Training",
+      "event": "Pythonによる独自学習ループ",
+      "event_type": "public_preview_followup",
+      "summary": "11月18日発表、24日総括。Fine-Tuning Sessions SDKで独自の学習ループを構築し、FoundryがGPU処理を担当する。LoRA対応。RL Environmentsは別途Private Preview。",
+      "enterprise_implication": "GPU管理を減らしながら業務固有の評価基準を学習に反映できる可能性がある。",
+      "use_cases": [
+        "見積明細の分類や抽出を業務データで評価・追加学習する"
+      ],
+      "technical_implications": [
+        "sample、forward_backward、optim_step、save_weightsを利用する",
+        "まずRAGやプロンプト改善と比較し、学習用と評価用データを分離する",
+        "学習はトークン課金、配備は別料金"
+      ],
+      "sources": [
+        {
+          "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-ignite-2026/",
+          "published_at": "2026-11-24"
+        },
+        {
+          "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/programmed-training-you-write-the-loop-foundry-runs-the-gpus/4573299",
+          "published_at": "2026-11-18"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "Microsoft公式資料に基づくsummary",
+        "analysis": "enterprise_implication、use_cases、technical_implicationsは分析・提案（SDK要件等は公式資料に基づく）"
+      }
+    },
+    {
+      "product": "Microsoft Foundry Evaluation",
+      "event": "Microsoft-Decision-1による評価",
+      "event_type": "public_preview_followup",
+      "summary": "24日の総括で評価用Decision-1のPreviewとSDK要件が明示された。Microsoftの測定では中央値0.59秒、1000評価呼び出し約0.12ドル。説明文を生成せず、閉域プロジェクトや安全性評価などには非対応。",
+      "enterprise_implication": "大量の回帰評価の費用を抑えられる可能性がある。",
+      "use_cases": [
+        "社内FAQの回答品質を定期評価する"
+      ],
+      "technical_implications": [
+        "azure-ai-evaluation 1.18.12以降を使用",
+        "人手評価との一致率を測定し境界例は再評価する"
+      ],
+      "sources": [
+        {
+          "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-ignite-2026/",
+          "published_at": "2026-11-24"
+        }
+      ],
+      "confidence": "high",
+      "language": "ja",
+      "provenance": {
+        "facts": "Microsoft公式資料に基づくsummary",
+        "analysis": "enterprise_implication、use_cases、technical_implicationsは分析・提案（SDK要件等は公式資料に基づく）"
+      }
+    }
+  ]
+}
