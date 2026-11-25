@@ -1,0 +1,40 @@
+{
+  "id": "microsoft-ai-brief-2026-11-26",
+  "date": "2026-11-26",
+  "coverage_window": "2026-11-25〜2026-11-26 08:09 JST",
+  "products": [
+    "GitHub Copilot"
+  ],
+  "topics": [
+    "課金",
+    "コードレビュー"
+  ],
+  "source_count": 1,
+  "language": "ja",
+  "generated_at": "2026-11-26T08:09:56+09:00",
+  "developments": [
+    {
+      "product": "GitHub Copilot",
+      "event": "コードレビューの既定課金先変更",
+      "event_type": "課金変更予告",
+      "summary": "11月25日発表。12月30日から、課金先未設定の場合、有償Copilotライセンス保有者のレビュー費用はリポジトリ所有組織に帰属する。AI Creditsの有償利用が無効、課金ロックあり、または請求先なしの場合はMemberとなる。",
+      "enterprise_implication": "【分析】部門別費用配賦や予算管理に影響する。",
+      "use_cases": [
+        "【提案】組織別のレビュー費用を集計する。"
+      ],
+      "technical_implications": [
+        "【提案】12月30日までに課金設定を確認し、従来方式を維持する場合はMemberを明示選択する。"
+      ],
+      "sources": [
+        {
+          "url": "https://github.blog/changelog/2026-11-25-copilot-code-review-billing-will-default-to-the-organization/",
+          "date": "2026-11-25",
+          "type": "公式"
+        }
+      ],
+      "confidence": "高",
+      "language": "ja"
+    }
+  ],
+  "coverage_note": "Work IQ、Foundry IQ、Microsoft 365 Copilot、Copilot Studioについては今回の検索結果から対象期間内の独立した重要更新を確認できなかった。"
+}
